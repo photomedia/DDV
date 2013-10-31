@@ -93,13 +93,13 @@
       <dsig:DigestValue>Usv8W9UkeoVQg+C+ZDKH/8UFcZA=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="DDV-license.txt" size="1814">
+  <file name="DDV-license.txt" size="1825">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>Zkt6n598ZBkhZDg/CAuGSort+Rg=</dsig:DigestValue>
+      <dsig:DigestValue>+8Bed8aHmVS+C9fmjK686q+ApVo=</dsig:DigestValue>
     </hash>
   </file>
   <file name="DeepZoomToolsDLL-license.txt" size="12018">

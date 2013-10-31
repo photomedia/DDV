@@ -194,3 +194,4 @@ C:\DATA\bitbucket\ddv\obj\Debug\DDV.csproj.GenerateResource.Cache
 C:\DATA\bitbucket\ddv\obj\Debug\DDV.TrustInfo.xml
 C:\DATA\bitbucket\ddv\obj\Debug\DDV.exe.manifest
 C:\DATA\bitbucket\ddv\obj\Debug\DDV.application
+C:\DATA\bitbucket\ddv\bin\Debug\Mongoose-MIT-license.txt

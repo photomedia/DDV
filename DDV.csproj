@@ -274,7 +274,9 @@
     <Content Include="loading.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Mongoose-MIT-license.txt" />
+    <Content Include="Mongoose-MIT-license.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="mongoose.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
