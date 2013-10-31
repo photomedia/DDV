@@ -1,0 +1,7 @@
+C:\DATA\GENE\GENE\bin\Release\GENE.exe
+C:\DATA\GENE\GENE\obj\Release\ResolveAssemblyReference.cache
+C:\DATA\GENE\GENE\obj\Release\GENE.Form1.resources
+C:\DATA\GENE\GENE\obj\Release\GENE.exe
+C:\DATA\GENE\GENE\bin\Release\DeepZoomTools.dll
+C:\DATA\GENE\GENE\obj\Release\GenerateResource.read.1.tlog
+C:\DATA\GENE\GENE\obj\Release\GenerateResource.write.1.tlog

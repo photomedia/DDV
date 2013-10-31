@@ -1,0 +1,12 @@
+obj\Debug\GENE.pdb
+obj\Release\ResolveAssemblyReference.cache
+obj\Release\GENE.Form1.resources
+obj\Release\GENE.csproj.GenerateResource.Cache
+bin\Release\GENE.exe
+obj\Release\GENE.exe
+bin\Debug\GENE.exe
+bin\Debug\GENE.pdb
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\GENE.Form1.resources
+obj\Debug\GENE.csproj.GenerateResource.Cache
+obj\Debug\GENE.exe
