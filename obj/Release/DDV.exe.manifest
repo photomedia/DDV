@@ -4,7 +4,7 @@
   <description asmv2:iconFile="App.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="DDV" version="1.0.5052.29164" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="DDV" version="1.0.5068.18987" language="neutral" processorArchitecture="msil" />
     <commandLine file="DDV.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -44,13 +44,13 @@
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DDV.exe" size="69632">
-      <assemblyIdentity name="DDV" version="1.0.5052.29164" language="neutral" processorArchitecture="msil" />
+      <assemblyIdentity name="DDV" version="1.0.5068.18987" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>Dcu5yKhtPD/qVZBhPYtLBcwUGUc=</dsig:DigestValue>
+        <dsig:DigestValue>yXBpbsEz6FgBf3NB3Nc1peaA83s=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -111,13 +111,13 @@
       <dsig:DigestValue>9Q2a8oYF6U1HtXTmNa41kA1q4dc=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="emboss-soap.js" size="13033">
+  <file name="emboss-soap.js" size="13387">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>WM+lxa4bG70QVQx09DZrXKtYIt8=</dsig:DigestValue>
+      <dsig:DigestValue>kiDrEGQ3DU56brxA5QTwUpUEX1k=</dsig:DigestValue>
     </hash>
   </file>
   <file name="ext\php_curl.dll" size="461312">
@@ -273,22 +273,22 @@
       <dsig:DigestValue>4T3vUuW7LbWHP/mj1CaMcbDqXAw=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="jquery-1.7.min.js" size="94020">
+  <file name="jquery-1.7.min.js" size="94023">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>PxsOnlSvGvLbLIpjlTBEhyNGIVE=</dsig:DigestValue>
+      <dsig:DigestValue>z5t1knDBx8YD2NOHnSxfq8Yh0AQ=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="jquery-MIT-license.txt" size="1098">
+  <file name="jquery-MIT-license.txt" size="1118">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>KMVZF44cR3Z7FFnejzjzvDLgi7c=</dsig:DigestValue>
+      <dsig:DigestValue>4t3WoiElUqA/iv1DtcYx9m86h44=</dsig:DigestValue>
     </hash>
   </file>
   <file name="LEGEND-A.png" size="3487">
@@ -543,13 +543,13 @@
       <dsig:DigestValue>wrgm79H8Ch2fWXY5JFv9EUbKpB0=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="seadragon-min.js" size="107652">
+  <file name="seadragon-min.js" size="107667">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>/S8B/+6NHqDIkccKw4XNZ19lP+Y=</dsig:DigestValue>
+      <dsig:DigestValue>kojhlc/N9eMnI0B9VmTTTPJd9I4=</dsig:DigestValue>
     </hash>
   </file>
   <file name="ssleay32.dll" size="214016">

@@ -13,6 +13,7 @@ using System.Diagnostics;
 using System.Net;
 using Microsoft.DeepZoomTools;
 using System.Collections.Generic;
+using System.Xml;
 
 
 namespace DDV
@@ -1228,21 +1229,13 @@ namespace DDV
                         iN = iN + CountOccurencesOfChar(read, 'N');
                         if (!bOnce) { iActualLineLength = read.Length; bOnce = true; }
 
-
-                        //calculate DataLength
-                        for (int j = 1; j <= iLineLength / 10; j++)
-                        {
-                            if (read.Length >= (j * 10))
-                            {
-                                DataLengthCounter = DataLengthCounter + 10;
-                            }
-                        }
-
+                        DataLengthCounter = DataLengthCounter + read.Trim().Length;
+                       
                         i++;
                     }
                 }
             }
-
+            
 
             lblDataLength.Text = "Nucleotides:" + DataLengthCounter.ToString();
             lblDataLength.Text = lblDataLength.Text + " | Using Line Length: " + iLineLength.ToString();
@@ -2147,8 +2140,6 @@ This image was generated with DNA Data Visualization software by T.Neugebauer<br
         private void button13_Click(object sender, EventArgs e)
         {
             //Download FASTA file from NIH
-            
-           
             if (txtGI.Text == "")
             {
                 MessageBox.Show("Please enter valid GI or select local data file.");
@@ -2158,9 +2149,17 @@ This image was generated with DNA Data Visualization software by T.Neugebauer<br
              // Set cursor as hourglass
             Cursor.Current = Cursors.WaitCursor;
             WebClient Client = new WebClient();
-            string strDownload = txtGI.Text;
-            strDownload = "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nucleotide&rettype=fasta&id=" + strDownload;
+            
+            string strDownload = "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nucleotide&rettype=fasta&id=" + txtGI.Text;
+            string strDownloadInfo = "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nucleotide&rettype=docsum&id=" + txtGI.Text;;
+            string strDestinationInfo = @Directory.GetCurrentDirectory() + "\\output\\sequence-info.xml";
             string strDestination = @Directory.GetCurrentDirectory() + "\\output\\sequence.fasta";
+            //if file exists, delete it
+            if (File.Exists(strDestinationInfo))
+            {
+                File.Delete(strDestinationInfo);
+                MessageBoxShow("Deleting cached sequence info...");
+            }
             //if file exists, delete it
             if (File.Exists(strDestination)){
                 File.Delete(strDestination);
@@ -2170,12 +2169,46 @@ This image was generated with DNA Data Visualization software by T.Neugebauer<br
             if (!(Directory.Exists(@Directory.GetCurrentDirectory() + "\\output"))){
                 Directory.CreateDirectory(@Directory.GetCurrentDirectory() + "\\output");
             }
-            MessageBoxShow("Attempting to download file...");
+            MessageBoxShow("Attempting to download file...please wait");
+            progressBar1.Minimum = 0;
+            progressBar1.Maximum = 100;
+            btnGenerateImage.Enabled = true;
+            btnReadSequenceProperties.Enabled = true;
             try
             {
-                Client.DownloadFile(strDownload, strDestination);
-                MessageBoxShow("Finished download file...");
-                SetSourceSequence(strDestination);
+                progressBar1.Value = 2;
+                MessageBoxShow("Attempting download of docsummary.");
+                WebClient client = new WebClient();
+                client.DownloadFile(strDownloadInfo, strDestinationInfo);
+                MessageBoxShow("Downloaded docsummary:");
+                string strDocSummary = File.ReadAllText(strDestinationInfo);
+                MessageBoxShow(strDocSummary);
+                MessageBoxShow("Downloading FASTA sequence. Please wait...");
+                int bytesLength = 0;
+                XmlReaderSettings xmlreadersettings = new XmlReaderSettings();
+                xmlreadersettings.DtdProcessing = DtdProcessing.Ignore;
+                using (XmlReader reader = XmlReader.Create(new StringReader(strDocSummary), xmlreadersettings)) 
+                {
+                    string s = "";
+                    while (s != "Length")
+                    {
+                        reader.ReadToFollowing("Item");
+                        reader.MoveToAttribute("Name");
+                        s = reader.Value;
+                    }
+                    reader.MoveToContent();
+                    bytesLength = reader.ReadElementContentAsInt();
+                    //MessageBoxShow(bytesLength.ToString());
+                }
+                progressBar1.Maximum = bytesLength+1000;
+	            client.DownloadProgressChanged += new DownloadProgressChangedEventHandler(client_DownloadProgressChanged);
+	            client.DownloadFileCompleted += new AsyncCompletedEventHandler(client_DownloadFileCompleted);
+                // Starts the download
+                client.DownloadFileAsync(new Uri(strDownload), strDestination);	 
+                // to do disable UI
+                button13.Enabled = false;
+                btnGenerateImage.Enabled = false;
+                btnReadSequenceProperties.Enabled = false;
             }
             catch (Exception ex)
             {
@@ -2189,13 +2222,29 @@ This image was generated with DNA Data Visualization software by T.Neugebauer<br
                 }
 
             }
-            //Clear variables
-            BitmapClear();
-            // Set cursor as default arrow
-            Cursor.Current = Cursors.Default;
+            
             
         }
-
+        void client_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
+        {
+            if ((int)e.BytesReceived < progressBar1.Maximum)
+            {
+                progressBar1.Value = (int)e.BytesReceived;
+                progressBar1.Update();
+                progressBar1.Refresh();
+            }
+        }
+        void client_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
+        {
+            MessageBoxShow("Download Completed.");
+            button13.Enabled = true;
+            // Set cursor as default arrow
+            Cursor.Current = Cursors.Default;
+            //Clear variables
+            BitmapClear();
+            string strDestination = @Directory.GetCurrentDirectory() + "\\output\\sequence.fasta";
+            SetSourceSequence(strDestination);
+        }
         private void SetSourceSequence(string strDestination){
             lblSourceSequence.Text = strDestination;
             m_strSourceFile = lblSourceSequence.Text;
@@ -2230,7 +2279,7 @@ This image was generated with DNA Data Visualization software by T.Neugebauer<br
 
         private void button1_Click(object sender, EventArgs e)
         {
-            // Set cursor as default arrow
+            // Set cursor as wait 
             Cursor.Current = Cursors.WaitCursor;
             int length = populateInfo();
             if (length == 0)
