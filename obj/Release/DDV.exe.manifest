@@ -4,7 +4,7 @@
   <description asmv2:iconFile="App.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="DDV" version="1.0.5068.18987" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="DDV" version="1.0.5076.42843" language="neutral" processorArchitecture="msil" />
     <commandLine file="DDV.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DDV.exe" size="69632">
-      <assemblyIdentity name="DDV" version="1.0.5068.18987" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DDV.exe" size="73728">
+      <assemblyIdentity name="DDV" version="1.0.5076.42843" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>yXBpbsEz6FgBf3NB3Nc1peaA83s=</dsig:DigestValue>
+        <dsig:DigestValue>wOzr8rcFN8/usju9A5RfjXuHmiw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -93,13 +93,31 @@
       <dsig:DigestValue>Usv8W9UkeoVQg+C+ZDKH/8UFcZA=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="DDV-license.txt" size="1825">
+  <file name="civetweb.exe" size="88576">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>+8Bed8aHmVS+C9fmjK686q+ApVo=</dsig:DigestValue>
+      <dsig:DigestValue>baU0NvNhrw619lOT/KsBrBv3Adw=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="civetweb-license.txt" size="1251">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>e2EWA2XrmQQBnjtb4jZo7BiK8gw=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="DDV-license.txt" size="1948">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>JEl0hdteiRhFj9h9k5CAxLBGNzc=</dsig:DigestValue>
     </hash>
   </file>
   <file name="DeepZoomToolsDLL-license.txt" size="12018">
@@ -451,33 +469,6 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
       <dsig:DigestValue>W7IehqB8B+e2Ozs3I1nW3jhUlzk=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="mongoose.conf" size="515">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>GFnJFbOk9Ct9/W4hepn01KAChiA=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="mongoose.exe" size="357888">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>QDAgnEdEXUpTDwa8D4t+AGu2FeU=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Mongoose-MIT-license.txt" size="1176">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>eYgEr3NktORrHQX/3VUUosoCpTE=</dsig:DigestValue>
     </hash>
   </file>
   <file name="nucleotideNumber.js" size="8499">

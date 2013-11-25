@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.label1DDVversion = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -37,23 +37,24 @@
             this.label7 = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
-            this.label8 = new System.Windows.Forms.Label();
             this.linkLabel3 = new System.Windows.Forms.LinkLabel();
             this.linkLabel4 = new System.Windows.Forms.LinkLabel();
             this.label9 = new System.Windows.Forms.Label();
             this.linkLabel5 = new System.Windows.Forms.LinkLabel();
             this.linkLabel6 = new System.Windows.Forms.LinkLabel();
             this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // label1
+            // label1DDVversion
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 24);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(302, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "© Tomasz Neugebauer (tomasz.neugebauer@concordia.ca).  ";
+            this.label1DDVversion.AutoSize = true;
+            this.label1DDVversion.Location = new System.Drawing.Point(3, 9);
+            this.label1DDVversion.Name = "label1DDVversion";
+            this.label1DDVversion.Size = new System.Drawing.Size(146, 13);
+            this.label1DDVversion.TabIndex = 0;
+            this.label1DDVversion.Text = "DNA Data Visualization DDV ";
             // 
             // label2
             // 
@@ -86,27 +87,28 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(16, 159);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(180, 13);
+            this.label5.Size = new System.Drawing.Size(154, 13);
             this.label5.TabIndex = 4;
-            this.label5.Text = "- Mongoose.exe distributed with the: ";
+            this.label5.Text = "- Civetweb distributed with the: ";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(12, 93);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(115, 13);
+            this.label6.Size = new System.Drawing.Size(397, 13);
             this.label6.TabIndex = 5;
-            this.label6.Text = "This software includes:";
+            this.label6.Text = "The following software is included in the distribution under its own respective t" +
+    "erms:";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(3, 49);
+            this.label7.Location = new System.Drawing.Point(3, 58);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(334, 13);
+            this.label7.Size = new System.Drawing.Size(297, 13);
             this.label7.TabIndex = 6;
-            this.label7.Text = "The software is free to use for non-commercial research and/or study.";
+            this.label7.Text = "DDV License (http://photomedia.ca/gene/DDV/license.html)";
             // 
             // linkLabel1
             // 
@@ -122,23 +124,13 @@
             // linkLabel2
             // 
             this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(202, 159);
+            this.linkLabel2.Location = new System.Drawing.Point(176, 159);
             this.linkLabel2.Name = "linkLabel2";
             this.linkLabel2.Size = new System.Drawing.Size(66, 13);
             this.linkLabel2.TabIndex = 8;
             this.linkLabel2.TabStop = true;
             this.linkLabel2.Text = "MIT License";
             this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(3, 223);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(417, 13);
-            this.label8.TabIndex = 9;
-            this.label8.Text = "Using this software implies agreement to the terms specified in all of the above " +
-    "licenses.";
             // 
             // linkLabel3
             // 
@@ -174,7 +166,7 @@
             // linkLabel5
             // 
             this.linkLabel5.AutoSize = true;
-            this.linkLabel5.Location = new System.Drawing.Point(6, 65);
+            this.linkLabel5.Location = new System.Drawing.Point(3, 71);
             this.linkLabel5.Name = "linkLabel5";
             this.linkLabel5.Size = new System.Drawing.Size(91, 13);
             this.linkLabel5.TabIndex = 13;
@@ -202,11 +194,31 @@
             this.label10.TabIndex = 14;
             this.label10.Text = "- jQuery";
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(3, 36);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(323, 13);
+            this.label11.TabIndex = 16;
+            this.label11.Text = "2013 © Tomasz Neugebauer (tomasz.neugebauer@concordia.ca) ";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(3, 223);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(417, 13);
+            this.label8.TabIndex = 9;
+            this.label8.Text = "Using this software implies agreement to the terms specified in all of the above " +
+    "licenses.";
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(507, 245);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.linkLabel6);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.linkLabel5);
@@ -222,7 +234,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.label1DDVversion);
             this.Name = "Form2";
             this.Text = "About this software";
             this.ResumeLayout(false);
@@ -232,7 +244,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label1DDVversion;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -241,12 +253,13 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.LinkLabel linkLabel2;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.LinkLabel linkLabel3;
         private System.Windows.Forms.LinkLabel linkLabel4;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.LinkLabel linkLabel5;
         private System.Windows.Forms.LinkLabel linkLabel6;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label8;
     }
 }

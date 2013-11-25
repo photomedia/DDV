@@ -8,6 +8,8 @@ using System.Text;
 using System.Windows.Forms;
 using System.Diagnostics;
 using System.IO;
+using System.Reflection;
+
 
 namespace DDV
 {
@@ -16,6 +18,8 @@ namespace DDV
         public Form2()
         {
             InitializeComponent();
+            string fileVersion=Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            this.label1DDVversion.Text = this.label1DDVversion.Text + "version "+fileVersion;
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -31,7 +35,7 @@ namespace DDV
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Process.Start(@Directory.GetCurrentDirectory() + "//Mongoose-MIT-license.txt");
+            Process.Start(@Directory.GetCurrentDirectory() + "//civetweb-license.txt");
         }
 
         private void linkLabel4_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

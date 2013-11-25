@@ -2310,7 +2310,7 @@ This image was generated with DNA Data Visualization software by T.Neugebauer<br
             bw.RunWorkerAsync();
             
 
-            MessageBoxShow("Launching Mongoose");
+            MessageBoxShow("Launching Civetweb");
             }
             catch (ArgumentNullException)
             {
@@ -2362,7 +2362,7 @@ This image was generated with DNA Data Visualization software by T.Neugebauer<br
             {
                 m_prcMongoose = new Process();
                 m_prcMongoose.StartInfo.CreateNoWindow = true;
-                m_prcMongoose.StartInfo.FileName = "mongoose.exe";
+                m_prcMongoose.StartInfo.FileName = "civetweb.exe";
                 m_prcMongoose.StartInfo.UseShellExecute = false;
                 //m_prcMongoose.StartInfo.RedirectStandardOutput = true;
                 //m_prcMongoose.StartInfo.RedirectStandardError = true;
