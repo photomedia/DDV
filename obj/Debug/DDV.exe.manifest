@@ -4,7 +4,7 @@
   <description asmv2:iconFile="App.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="DDV" version="1.0.5076.42847" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="DDV" version="1.0.5082.34780" language="neutral" processorArchitecture="msil" />
     <commandLine file="DDV.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -44,13 +44,13 @@
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DDV.exe" size="73728">
-      <assemblyIdentity name="DDV" version="1.0.5076.42847" language="neutral" processorArchitecture="msil" />
+      <assemblyIdentity name="DDV" version="1.0.5082.34780" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>tAie+Nw1r9d9EBq9DEkLss/gYDE=</dsig:DigestValue>
+        <dsig:DigestValue>IRDC8LOdxEx0Pf3bTdag0AYTFHo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
