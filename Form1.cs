@@ -1443,6 +1443,7 @@ namespace DDV
 <head>
 <title>DNA Data Visualization : " + lblSequenceName.Text +
             @"</title>
+<meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
 <script src='../../seadragon-min.js' type='text/javascript'></script>
 <script type='text/javascript' src='../../jquery-1.7.min.js'></script>
 
@@ -1475,7 +1476,7 @@ namespace DDV
 	 </ul>
 <h2 class='mainTitle'><strong>" + lblSequenceName.Text +
                         @"</strong> 
- </span></h2>
+ </h2>
 
 <div id='container'>
 </div>
@@ -1531,7 +1532,7 @@ C:" + iC + @" processed: " + ipC + @"<br />";
 <a href='sequence.fasta'>FASTA file</a><br />
 NCBI (gi): <a href='http://www.ncbi.nlm.nih.gov/nuccore/" + gi + @"'>http://www.ncbi.nlm.nih.gov/nuccore/" + gi + @"</a><br />
 
-</p>
+
 <h3>Notes</h3>
 This image was generated with DNA Data Visualization software by T.Neugebauer<br />Date Visualization Created:" + DateTime.Now.ToString("d/MM/yyyy") + @"
 <script type='text/javascript'>

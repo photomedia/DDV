@@ -251,4 +251,3 @@ C:\DATA\bitbucket\ddv\obj\Release\DDV.TrustInfo.xml
 C:\DATA\bitbucket\ddv\obj\Release\DDV.exe.manifest
 C:\DATA\bitbucket\ddv\obj\Release\DDV.application
 C:\DATA\bitbucket\ddv\obj\Release\DDV.exe
-C:\DATA\bitbucket\ddv\obj\Release\DDV.csprojResolveAssemblyReference.cache
