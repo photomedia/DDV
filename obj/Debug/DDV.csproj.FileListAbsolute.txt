@@ -131,9 +131,10 @@ C:\DATA\bitbucket\ddv\bin\Debug\civetweb.exe
 C:\DATA\bitbucket\ddv\bin\Debug\jquery-MIT-license.txt
 C:\DATA\bitbucket\ddv\bin\Debug\civetweb.conf
 C:\DATA\bitbucket\ddv\bin\Debug\App.ico
+C:\DATA\bitbucket\ddv\bin\Debug\Biojs.js
+C:\DATA\bitbucket\ddv\bin\Debug\Biojs.Sequence.js
 C:\DATA\bitbucket\ddv\bin\Debug\DDV-license.txt
 C:\DATA\bitbucket\ddv\bin\Debug\DeepZoomToolsDLL-license.txt
-C:\DATA\bitbucket\ddv\bin\Debug\emboss-soap.js
 C:\DATA\bitbucket\ddv\bin\Debug\ext\php_curl.dll
 C:\DATA\bitbucket\ddv\bin\Debug\img\fullpage_grouphover.png
 C:\DATA\bitbucket\ddv\bin\Debug\img\fullpage_hover.png
@@ -172,15 +173,15 @@ C:\DATA\bitbucket\ddv\bin\Debug\libeay32.dll
 C:\DATA\bitbucket\ddv\bin\Debug\loading.gif
 C:\DATA\bitbucket\ddv\bin\Debug\nucleotideNumber.js
 C:\DATA\bitbucket\ddv\bin\Debug\OpenSeadragon-license.txt
+C:\DATA\bitbucket\ddv\bin\Debug\openseadragon-scalebar.js
+C:\DATA\bitbucket\ddv\bin\Debug\openseadragon.min.js
 C:\DATA\bitbucket\ddv\bin\Debug\php-cgi.exe
 C:\DATA\bitbucket\ddv\bin\Debug\php-license.txt
 C:\DATA\bitbucket\ddv\bin\Debug\php5.dll
-C:\DATA\bitbucket\ddv\bin\Debug\seadragon-min.js
 C:\DATA\bitbucket\ddv\bin\Debug\seadragon.css
 C:\DATA\bitbucket\ddv\bin\Debug\ssleay32.dll
-C:\DATA\bitbucket\ddv\bin\Debug\ajax-proxy-density.php
-C:\DATA\bitbucket\ddv\bin\Debug\ajax-proxy.php
 C:\DATA\bitbucket\ddv\bin\Debug\php.ini
+C:\DATA\bitbucket\ddv\bin\Debug\openseadragon.min.js.map
 C:\DATA\bitbucket\ddv\bin\Debug\DDV.exe.manifest
 C:\DATA\bitbucket\ddv\bin\Debug\DDV.application
 C:\DATA\bitbucket\ddv\bin\Debug\DDV.exe
@@ -194,3 +195,6 @@ C:\DATA\bitbucket\ddv\obj\Debug\DDV.exe.manifest
 C:\DATA\bitbucket\ddv\obj\Debug\DDV.application
 C:\DATA\bitbucket\ddv\obj\Debug\DDV.exe
 C:\DATA\bitbucket\ddv\obj\Debug\DDV.pdb
+C:\DATA\bitbucket\ddv\bin\Debug\nucleicDensity.js
+C:\DATA\bitbucket\ddv\bin\Debug\density.php
+C:\DATA\bitbucket\ddv\bin\Debug\biojs-apache-license.txt

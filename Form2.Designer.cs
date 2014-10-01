@@ -45,6 +45,8 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.linkLabel7 = new System.Windows.Forms.LinkLabel();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1DDVversion
@@ -113,12 +115,12 @@
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(374, 114);
+            this.linkLabel1.Location = new System.Drawing.Point(361, 114);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(43, 13);
+            this.linkLabel1.Size = new System.Drawing.Size(44, 13);
             this.linkLabel1.TabIndex = 7;
             this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "license.";
+            this.linkLabel1.Text = "License";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // linkLabel2
@@ -137,10 +139,10 @@
             this.linkLabel3.AutoSize = true;
             this.linkLabel3.Location = new System.Drawing.Point(360, 137);
             this.linkLabel3.Name = "linkLabel3";
-            this.linkLabel3.Size = new System.Drawing.Size(43, 13);
+            this.linkLabel3.Size = new System.Drawing.Size(44, 13);
             this.linkLabel3.TabIndex = 10;
             this.linkLabel3.TabStop = true;
-            this.linkLabel3.Text = "license.";
+            this.linkLabel3.Text = "License";
             this.linkLabel3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel3_LinkClicked);
             // 
             // linkLabel4
@@ -201,23 +203,45 @@
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(323, 13);
             this.label11.TabIndex = 16;
-            this.label11.Text = "2013 © Tomasz Neugebauer (tomasz.neugebauer@concordia.ca) ";
+            this.label11.Text = "2014 © Tomasz Neugebauer (tomasz.neugebauer@concordia.ca) ";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(3, 223);
+            this.label8.Location = new System.Drawing.Point(0, 254);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(417, 13);
             this.label8.TabIndex = 9;
             this.label8.Text = "Using this software implies agreement to the terms specified in all of the above " +
     "licenses.";
             // 
+            // linkLabel7
+            // 
+            this.linkLabel7.AutoSize = true;
+            this.linkLabel7.Location = new System.Drawing.Point(56, 224);
+            this.linkLabel7.Name = "linkLabel7";
+            this.linkLabel7.Size = new System.Drawing.Size(84, 13);
+            this.linkLabel7.TabIndex = 18;
+            this.linkLabel7.TabStop = true;
+            this.linkLabel7.Text = "Apache License";
+            this.linkLabel7.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel7_LinkClicked);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(16, 224);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(43, 13);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "- BioJS ";
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(507, 245);
+            this.ClientSize = new System.Drawing.Size(507, 289);
+            this.Controls.Add(this.linkLabel7);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.linkLabel6);
             this.Controls.Add(this.label10);
@@ -261,5 +285,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.LinkLabel linkLabel7;
+        private System.Windows.Forms.Label label1;
     }
 }

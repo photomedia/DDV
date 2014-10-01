@@ -4,7 +4,7 @@
   <description asmv2:iconFile="App.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="DDV" version="1.0.5141.31460" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="DDV" version="1.0.5386.36833" language="neutral" processorArchitecture="msil" />
     <commandLine file="DDV.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -44,13 +44,13 @@
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DDV.exe" size="73728">
-      <assemblyIdentity name="DDV" version="1.0.5141.31460" language="neutral" processorArchitecture="msil" />
+      <assemblyIdentity name="DDV" version="1.0.5386.36833" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>OOhBOHnynZYMfThxj9a6KvYbccQ=</dsig:DigestValue>
+        <dsig:DigestValue>e/YtQeLz8Es5ScIjaFDokP5QbLk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -66,24 +66,6 @@
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="ajax-proxy.php" size="2246">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>R+BlCVhRfxjfP+Kr6R+gh+xGLjE=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="ajax-proxy-density.php" size="2248">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>z+oP0hBK64/G4iQueXUlLQctpCs=</dsig:DigestValue>
-    </hash>
-  </file>
   <file name="App.ico" size="766">
     <hash>
       <dsig:Transforms>
@@ -91,6 +73,33 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
       <dsig:DigestValue>Usv8W9UkeoVQg+C+ZDKH/8UFcZA=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Biojs.js" size="19353">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>gJXvoE553BLR+c9JIuarzvUKetc=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Biojs.Sequence.js" size="41402">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>qAq6JU2Z5ZL3TgcxB/ZtxmG0MO4=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="biojs-apache-license.txt" size="10718">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>Mx/ERBxtSlbOWM2R2FqyzNHFo7I=</dsig:DigestValue>
     </hash>
   </file>
   <file name="civetweb.exe" size="88576">
@@ -111,13 +120,13 @@
       <dsig:DigestValue>e2EWA2XrmQQBnjtb4jZo7BiK8gw=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="DDV-license.txt" size="1948">
+  <file name="DDV-license.txt" size="1990">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>JEl0hdteiRhFj9h9k5CAxLBGNzc=</dsig:DigestValue>
+      <dsig:DigestValue>qyG2/Wz1A0Ws6EOiX3AJIdy/rmM=</dsig:DigestValue>
     </hash>
   </file>
   <file name="DeepZoomToolsDLL-license.txt" size="12018">
@@ -129,13 +138,13 @@
       <dsig:DigestValue>9Q2a8oYF6U1HtXTmNa41kA1q4dc=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="emboss-soap.js" size="13033">
+  <file name="density.php" size="2282">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>WM+lxa4bG70QVQx09DZrXKtYIt8=</dsig:DigestValue>
+      <dsig:DigestValue>r5IB/xLTZ4rRtkop9Ep9tSGoQKI=</dsig:DigestValue>
     </hash>
   </file>
   <file name="ext\php_curl.dll" size="461312">
@@ -291,22 +300,22 @@
       <dsig:DigestValue>4T3vUuW7LbWHP/mj1CaMcbDqXAw=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="jquery-1.7.min.js" size="94020">
+  <file name="jquery-1.7.min.js" size="94023">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>PxsOnlSvGvLbLIpjlTBEhyNGIVE=</dsig:DigestValue>
+      <dsig:DigestValue>z5t1knDBx8YD2NOHnSxfq8Yh0AQ=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="jquery-MIT-license.txt" size="1098">
+  <file name="jquery-MIT-license.txt" size="1118">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>KMVZF44cR3Z7FFnejzjzvDLgi7c=</dsig:DigestValue>
+      <dsig:DigestValue>4t3WoiElUqA/iv1DtcYx9m86h44=</dsig:DigestValue>
     </hash>
   </file>
   <file name="LEGEND-A.png" size="3487">
@@ -471,13 +480,40 @@
       <dsig:DigestValue>W7IehqB8B+e2Ozs3I1nW3jhUlzk=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="nucleotideNumber.js" size="8499">
+  <file name="nucleicDensity.js" size="4118">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>9CFmcIhJSQZsJ3rav+1Q074QnoI=</dsig:DigestValue>
+      <dsig:DigestValue>XhbIoK9/fOOEmv4xHzXDeRwO7fU=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="nucleotideNumber.js" size="12179">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>dinMwG5b+mvKcb0MVyoZTrQs9yU=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="openseadragon.min.js" size="148263">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>fj+l1YYLVIVwpDFeQAu8GBEdL4A=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="openseadragon.min.js.map" size="183681">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>A7jCXMdR0EQRjFaxPvvhECNekqE=</dsig:DigestValue>
     </hash>
   </file>
   <file name="OpenSeadragon-license.txt" size="1640">
@@ -487,6 +523,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
       <dsig:DigestValue>pCkNVEtwrgYiNyIy2o9L0BpoBMs=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="openseadragon-scalebar.js" size="19799">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>09H5JdOeXG9uB49/CoAYHfNPsEs=</dsig:DigestValue>
     </hash>
   </file>
   <file name="php.ini" size="71544">
@@ -525,22 +570,13 @@
       <dsig:DigestValue>JoUORkdVc83TkFUyDIfLOFcNxO4=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="seadragon.css" size="1621">
+  <file name="seadragon.css" size="2245">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>wrgm79H8Ch2fWXY5JFv9EUbKpB0=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="seadragon-min.js" size="107652">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>/S8B/+6NHqDIkccKw4XNZ19lP+Y=</dsig:DigestValue>
+      <dsig:DigestValue>V3l8aUCVGJSs25N2tjoWPprKXuM=</dsig:DigestValue>
     </hash>
   </file>
   <file name="ssleay32.dll" size="214016">

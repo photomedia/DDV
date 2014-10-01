@@ -74,7 +74,7 @@ namespace DDV
         private Label label5;
         private TextBox txtGI;
         private Button button13;
-        private TextBox textBoxRefSeq;
+        private Label lblRefSeq;
         private Label label6;
         private Label label8;
         private Label lblSourceBitmapFilename;
@@ -101,7 +101,7 @@ namespace DDV
         private ToolTip toolTip1;
         private Label label7;
         private Label label9;
-        private CheckBox chckIncludeSOAP;
+        private CheckBox chckIncludeDensity;
         private OpenFileDialog dlgImageFileSet;
 
 
@@ -172,7 +172,7 @@ namespace DDV
             this.lblDataLength = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lblFASTAstats = new System.Windows.Forms.Label();
-            this.textBoxRefSeq = new System.Windows.Forms.TextBox();
+            this.lblRefSeq = new System.Windows.Forms.Label();
             this.lblSequenceName = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.saveDialog = new System.Windows.Forms.SaveFileDialog();
@@ -187,7 +187,7 @@ namespace DDV
             this.btnGeneratedIntefaces = new System.Windows.Forms.Button();
             this.lblOutputPath = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.chckIncludeSOAP = new System.Windows.Forms.CheckBox();
+            this.chckIncludeDensity = new System.Windows.Forms.CheckBox();
             this.label9 = new System.Windows.Forms.Label();
             this.btnReadSequenceProperties = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -297,8 +297,8 @@ namespace DDV
             // 
             // lblSourceBitmapFilename
             // 
-            this.lblSourceBitmapFilename.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblSourceBitmapFilename.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblSourceBitmapFilename.Location = new System.Drawing.Point(64, 132);
             this.lblSourceBitmapFilename.Name = "lblSourceBitmapFilename";
             this.lblSourceBitmapFilename.Size = new System.Drawing.Size(396, 24);
@@ -316,12 +316,12 @@ namespace DDV
             // 
             // groupBox2
             // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.AutoSize = true;
             this.groupBox2.Controls.Add(this.lblFASTAstats);
-            this.groupBox2.Controls.Add(this.textBoxRefSeq);
+            this.groupBox2.Controls.Add(this.lblRefSeq);
             this.groupBox2.Controls.Add(this.lblSequenceName);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.lblDataLength);
@@ -334,21 +334,21 @@ namespace DDV
             // 
             // lblFASTAstats
             // 
-            this.lblFASTAstats.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblFASTAstats.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblFASTAstats.Location = new System.Drawing.Point(6, 142);
             this.lblFASTAstats.Name = "lblFASTAstats";
             this.lblFASTAstats.Size = new System.Drawing.Size(454, 272);
             this.lblFASTAstats.TabIndex = 17;
             this.lblFASTAstats.Text = "FASTA Stats:";
             // 
-            // textBoxRefSeq
+            // lblRefSeq
             // 
-            this.textBoxRefSeq.Location = new System.Drawing.Point(125, 12);
-            this.textBoxRefSeq.Name = "textBoxRefSeq";
-            this.textBoxRefSeq.Size = new System.Drawing.Size(100, 20);
-            this.textBoxRefSeq.TabIndex = 36;
+            this.lblRefSeq.Location = new System.Drawing.Point(125, 12);
+            this.lblRefSeq.Name = "lblRefSeq";
+            this.lblRefSeq.Size = new System.Drawing.Size(100, 20);
+            this.lblRefSeq.TabIndex = 36;
             // 
             // lblSequenceName
             // 
@@ -361,12 +361,12 @@ namespace DDV
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(8, 16);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(111, 13);
+            this.label6.Size = new System.Drawing.Size(43, 13);
             this.label6.TabIndex = 35;
-            this.label6.Text = "RefSeq Accession";
+            this.label6.Text = "RefSeq";
             // 
             // progressBar1
             // 
@@ -394,8 +394,8 @@ namespace DDV
             // 
             // resultLogTextBox
             // 
-            this.resultLogTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
+            this.resultLogTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.resultLogTextBox.Location = new System.Drawing.Point(37, 328);
             this.resultLogTextBox.Name = "resultLogTextBox";
             this.resultLogTextBox.Size = new System.Drawing.Size(616, 287);
@@ -415,8 +415,8 @@ namespace DDV
             // 
             // groupBox3
             // 
-            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Controls.Add(this.lblSourceBitmapFilename);
             this.groupBox3.Controls.Add(this.lnkLatestInterface);
@@ -456,8 +456,8 @@ namespace DDV
             // 
             // lblOutputPath
             // 
-            this.lblOutputPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblOutputPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblOutputPath.Location = new System.Drawing.Point(97, 63);
             this.lblOutputPath.Name = "lblOutputPath";
             this.lblOutputPath.Size = new System.Drawing.Size(363, 58);
@@ -467,7 +467,7 @@ namespace DDV
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.tabPage1.Controls.Add(this.chckIncludeSOAP);
+            this.tabPage1.Controls.Add(this.chckIncludeDensity);
             this.tabPage1.Controls.Add(this.label9);
             this.tabPage1.Controls.Add(this.btnReadSequenceProperties);
             this.tabPage1.Controls.Add(this.label3);
@@ -485,17 +485,17 @@ namespace DDV
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Generate DNA Visualization";
             // 
-            // chckIncludeSOAP
+            // chckIncludeDensity
             // 
-            this.chckIncludeSOAP.AutoSize = true;
-            this.chckIncludeSOAP.Checked = true;
-            this.chckIncludeSOAP.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chckIncludeSOAP.Location = new System.Drawing.Point(173, 24);
-            this.chckIncludeSOAP.Name = "chckIncludeSOAP";
-            this.chckIncludeSOAP.Size = new System.Drawing.Size(134, 17);
-            this.chckIncludeSOAP.TabIndex = 40;
-            this.chckIncludeSOAP.Text = "include SOAP services";
-            this.chckIncludeSOAP.UseVisualStyleBackColor = true;
+            this.chckIncludeDensity.AutoSize = true;
+            this.chckIncludeDensity.Checked = true;
+            this.chckIncludeDensity.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chckIncludeDensity.Location = new System.Drawing.Point(174, 24);
+            this.chckIncludeDensity.Name = "chckIncludeDensity";
+            this.chckIncludeDensity.Size = new System.Drawing.Size(133, 17);
+            this.chckIncludeDensity.TabIndex = 40;
+            this.chckIncludeDensity.Text = "include density service";
+            this.chckIncludeDensity.UseVisualStyleBackColor = true;
             // 
             // label9
             // 
@@ -506,7 +506,7 @@ namespace DDV
             this.label9.Size = new System.Drawing.Size(600, 13);
             this.label9.TabIndex = 39;
             this.label9.Text = "After selecting sequence, Read Sequence Properties and Generate Image and Interfa" +
-                "ce, then Process Image with Deepzoom";
+    "ce, then Process Image with Deepzoom";
             // 
             // btnReadSequenceProperties
             // 
@@ -1219,9 +1219,8 @@ namespace DDV
                                 
                             }
                             else { 
-                               string refseqAcc = Regex.Match(refseq, @"^([^\.]*)\.").Groups[1].Value;
-                               textBoxRefSeq.Clear();
-                               textBoxRefSeq.AppendText(refseqAcc);
+                               //string refseqAcc = Regex.Match(refseq, @"^([^\.]*)\.").Groups[1].Value;
+                               lblRefSeq.Text = refseq;
                                MessageBoxShow("Refseq present in sequence data. ");
                             }
                             gi = Regex.Match(lblSequenceName.Text, @"gi\|(.*?)\|").Groups[1].Value;
@@ -1261,8 +1260,7 @@ namespace DDV
             
 
             lblDataLength.Text = "Nucleotides:" + DataLengthCounter.ToString();
-            lblDataLength.Text = lblDataLength.Text + " | Using Line Length: " + iLineLength.ToString();
-            lblDataLength.Text = lblDataLength.Text + " | Actual Line Length: " + iActualLineLength.ToString();
+            lblDataLength.Text = lblDataLength.Text + " | Line Length: " + iActualLineLength.ToString();
             lblDataLength.Refresh();
             if (iLineLength.ToString() != iActualLineLength.ToString())
             {
@@ -1319,7 +1317,7 @@ namespace DDV
             if (m_strSourceFile == "") { MessageBox.Show("Please select source file.", "Incomplete", MessageBoxButtons.OK, MessageBoxIcon.Information); return; }
             StreamReader s = File.OpenText(m_strSourceFile);
             FileInfo TheFile = new FileInfo(m_strSourceFile);
-   
+
             int total = populateInfo();
 
             if (total == 0)
@@ -1384,7 +1382,7 @@ namespace DDV
             //string strResultFileName = TheFile.Name + intMagnification+"X-uncompressed.png";
             string strResultFileName = gi + ".png";
             glbl_b.Save(strResultFileName, System.Drawing.Imaging.ImageFormat.Png);
-           
+
             MessageBoxShow("File generated " + strResultFileName);
 
             string sourceFile = strResultFileName;
@@ -1437,15 +1435,15 @@ namespace DDV
             StreamWriter Tex = t.CreateText();
             StringWriter wr = new StringWriter();
             string embedHTML = @"
-            <!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
-<html>
-
+<!DOCTYPE html>
+<html lang='en'>
 <head>
+<meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
 <title>DNA Data Visualization : " + lblSequenceName.Text +
             @"</title>
-<meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
-<script src='../../seadragon-min.js' type='text/javascript'></script>
+<script src='../../openseadragon.min.js' type='text/javascript'></script>
 <script type='text/javascript' src='../../jquery-1.7.min.js'></script>
+<script src='../../openseadragon-scalebar.js' type='text/javascript'></script>
 
 <script type='text/javascript'>
 	        var originalImageWidth= " + x + ";" +
@@ -1455,7 +1453,7 @@ namespace DDV
             var pixelSize = 2;
             var ColumnPadding = 4;
             var iLineLength = 70;
-            var usa='refseq_fetch:" + textBoxRefSeq.Text + "';" +
+            var usa='refseq_fetch:" + lblRefSeq.Text + "';" +
             @"          
             var ipTotal = " + ipTotal + ";" +
             @"
@@ -1464,8 +1462,12 @@ namespace DDV
             var send=ipTotal.toString(); 
             </script>
 <script src='../../nucleotideNumber.js' type='text/javascript'></script>
-<script src='../../emboss-soap.js' type='text/javascript'></script>";
+<script src='../../nucleicDensity.js' type='text/javascript'></script>";
             embedHTML = embedHTML + @"<link rel='stylesheet' type='text/css' href='../../seadragon.css' />
+    <!-- BIOJS css -->
+	<script language='JavaScript' type='text/javascript' src='../../Biojs.js'></script>
+	<!-- component code -->
+	<script language='JavaScript' type='text/javascript' src='../../Biojs.Sequence.js'></script>
 </head>
 
 <body>
@@ -1480,12 +1482,8 @@ namespace DDV
 
 <div id='container'>
 </div>
-<script type='text/javascript'>
-	        outputTable();";
-            if (chckIncludeSOAP.Checked == true) { embedHTML = embedHTML + @"outputEmbossGeecee();"; }
-embedHTML = embedHTML + @"</script>
-<br clear='left' /> 
-<p class='legendHeading'><strong>Legend:</strong><br /></p><div style='width:700px;margin-left:50px;'>";
+
+<p class='legendHeading'><strong>Legend:</strong><br /></p><div style='margin-left:50px;'>";
             if (iA != 0) { embedHTML = embedHTML + @"<img src='../../LEGEND-A.png' />"; }
             if (iT != 0) { embedHTML = embedHTML + @"<img src='../../LEGEND-T.png' />"; }
             if (iG != 0) { embedHTML = embedHTML + @"<img src='../../LEGEND-G.png' />"; }
@@ -1502,39 +1500,28 @@ embedHTML = embedHTML + @"</script>
             if (iV != 0) { embedHTML = embedHTML + @"<img src='../../LEGEND-V.png' />"; }
             if (iN != 0) { embedHTML = embedHTML + @"<img src='../../LEGEND-N.png' />"; }
             embedHTML = embedHTML + @"<img src='../../LEGEND-bg.png' /></div>
-<div class='legend-details'>
-At 100% zoom, each nucleotide is 2px X 2px<br />70 nucleotides per horizontal line in column.<br />
-Image Width X Height: <script type='text/javascript'>document.write(originalImageWidth+'px X '+originalImageHeight+'px');</script><br />
-Padding between columns: 4px<br />
-Number of Columns: " + numColumns + @"<br />
-Nucleotides per column: " + iNucleotidesPerColumn + @"<br /><br />
-A:" + iA + @" processed: " + ipA + @"<br />
-T:" + iT + @" processed: " + ipT + @"<br />
-G:" + iG + @" processed: " + ipG + @"<br />
-C:" + iC + @" processed: " + ipC + @"<br />";
-            if (iR != 0) { embedHTML = embedHTML + @"R:" + iR + @" processed: " + ipR + @"<br />"; }
-            if (iY != 0) { embedHTML = embedHTML + @"Y:" + iY + @" processed: " + ipY + @"<br />"; }
-            if (iS != 0) { embedHTML = embedHTML + @"S:" + iS + @" processed: " + ipS + @"<br />"; }
-            if (iW != 0) { embedHTML = embedHTML + @"W:" + iW + @" processed: " + ipW + @"<br />"; }
-            if (iK != 0) { embedHTML = embedHTML + @"K:" + iK + @" processed: " + ipK + @"<br />"; }
-            if (iM != 0) { embedHTML = embedHTML + @"M:" + iM + @" processed: " + ipM + @"<br />"; }
-            if (iB != 0) { embedHTML = embedHTML + @"B:" + iB + @" processed: " + ipB + @"<br />"; }
-            if (iD != 0) { embedHTML = embedHTML + @"D:" + iD + @" processed: " + ipD + @"<br />"; }
-            if (iH != 0) { embedHTML = embedHTML + @"H:" + iH + @" processed: " + ipH + @"<br />"; }
-            if (iV != 0) { embedHTML = embedHTML + @"V:" + iV + @" processed: " + ipV + @"<br />"; }
-            if (iN != 0) { embedHTML = embedHTML + @"N:" + iN + @" processed: " + ipN + @"<br />"; }
-            embedHTML = embedHTML + @"iTotal:" + iTotal + @" ipTotal: " + ipTotal + @"
-</div>
-<br clear='left' />
+
+<script type='text/javascript'>
+	        outputTable();";
+            if (chckIncludeDensity.Checked == true) { embedHTML = embedHTML + @"outputDensityUI();"; }
+            embedHTML = embedHTML + @"</script>
+
 <div class='legend-details'>
 <h3>Data Source:</h3>
 
-<a href='sequence.fasta'>FASTA file</a><br />
-NCBI (gi): <a href='http://www.ncbi.nlm.nih.gov/nuccore/" + gi + @"'>http://www.ncbi.nlm.nih.gov/nuccore/" + gi + @"</a><br />
+<a href='sequence.fasta'>FASTA file</a><br />";
 
+
+            if (gi!="")
+            {
+                embedHTML = embedHTML + @"
+NCBI (gi): <a href='http://www.ncbi.nlm.nih.gov/nuccore/" + gi + @"'>http://www.ncbi.nlm.nih.gov/nuccore/" + gi + @"</a><br />";
+            }
+
+            embedHTML = embedHTML + @"
 
 <h3>Notes</h3>
-This image was generated with DNA Data Visualization software by T.Neugebauer<br />Date Visualization Created:" + DateTime.Now.ToString("d/MM/yyyy") + @"
+This DNA data visualization interface was generated with <a href='https://bitbucket.org/tneugebauer/ddv'>DDV</a><br />Date Visualization Created:" + DateTime.Now.ToString("d/MM/yyyy") + @"
 <script type='text/javascript'>
 	        otherCredits();
 </script>
@@ -1702,7 +1689,7 @@ This image was generated with DNA Data Visualization software by T.Neugebauer<br
 
             progressBar1.Value = 0;
             progressBar1.Minimum = 0;
-            progressBar1.Maximum = 35;
+            progressBar1.Maximum = 40;
             progressBar1.Value += 1;
 
             //move source image into source folder
@@ -1883,8 +1870,42 @@ This image was generated with DNA Data Visualization software by T.Neugebauer<br
                 progressBar1.Refresh();
 
                 //copy shared files into output folder
-                strSource = @Directory.GetCurrentDirectory() + "\\seadragon-min.js"; ;
-                strDestination = finalDestinationPath + "seadragon-min.js";
+                strSource = @Directory.GetCurrentDirectory() + "\\openseadragon.min.js"; ;
+                strDestination = finalDestinationPath + "openseadragon.min.js";
+                MessageBoxShow("Copying scripts" + strSource + " to " + strDestination);
+                CopyFileWithReplaceIfNewer(strSource, strDestination);
+                progressBar1.Value += 1;
+                progressBar1.Update();
+                progressBar1.Refresh();
+
+                //copy shared files into output folder
+                strSource = @Directory.GetCurrentDirectory() + "\\openseadragon-scalebar.js"; ;
+                strDestination = finalDestinationPath + "openseadragon-scalebar.js";
+                MessageBoxShow("Copying scripts" + strSource + " to " + strDestination);
+                CopyFileWithReplaceIfNewer(strSource, strDestination);
+                progressBar1.Value += 1;
+                progressBar1.Update();
+                progressBar1.Refresh();
+
+                //copy shared files into output folder
+                strSource = @Directory.GetCurrentDirectory() + "\\openseadragon.min.js.map"; ;
+                strDestination = finalDestinationPath + "openseadragon.min.js.map";
+                CopyFileWithReplaceIfNewer(strSource, strDestination);
+                progressBar1.Value += 1;
+                progressBar1.Update();
+                progressBar1.Refresh();
+
+                //copy shared files into output folder
+                strSource = @Directory.GetCurrentDirectory() + "\\Biojs.js"; ;
+                strDestination = finalDestinationPath + "Biojs.js";
+                CopyFileWithReplaceIfNewer(strSource, strDestination);
+                progressBar1.Value += 1;
+                progressBar1.Update();
+                progressBar1.Refresh();
+
+                //copy shared files into output folder
+                strSource = @Directory.GetCurrentDirectory() + "\\Biojs.Sequence.js"; ;
+                strDestination = finalDestinationPath + "Biojs.Sequence.js";
                 CopyFileWithReplaceIfNewer(strSource, strDestination);
                 progressBar1.Value += 1;
                 progressBar1.Update();
@@ -1926,8 +1947,8 @@ This image was generated with DNA Data Visualization software by T.Neugebauer<br
                 progressBar1.Refresh();
 
                 //copy shared files into output folder
-                strSource = @Directory.GetCurrentDirectory() + "\\emboss-soap.js";
-                strDestination = finalDestinationPath + "emboss-soap.js";
+                strSource = @Directory.GetCurrentDirectory() + "\\nucleicDensity.js";
+                strDestination = finalDestinationPath + "nucleicDensity.js";
                 MessageBoxShow("Copying " + strSource + " to " + strDestination);
                 CopyFileNoReplace(strSource, strDestination);
                 progressBar1.Value += 2;
@@ -2088,22 +2109,12 @@ This image was generated with DNA Data Visualization software by T.Neugebauer<br
                 progressBar1.Refresh();
 
                 //copy shared files into output folder
-                strSource = @Directory.GetCurrentDirectory() + "\\ajax-proxy.php";
-                strDestination = finalDestinationPath + "ajax-proxy.php";
+                strSource = @Directory.GetCurrentDirectory() + "\\density.php";
+                strDestination = finalDestinationPath + "density.php";
                 MessageBoxShow("Copying " + strSource + " to " + strDestination);
                 CopyFileNoReplace(strSource, strDestination);
                 progressBar1.Value += 1;
                 progressBar1.Update();
-                progressBar1.Refresh();
-
-                //copy shared files into output folder
-                strSource = @Directory.GetCurrentDirectory() + "\\ajax-proxy-density.php";
-                strDestination = finalDestinationPath + "ajax-proxy-density.php";
-                MessageBoxShow("Copying " + strSource + " to " + strDestination);
-                CopyFileNoReplace(strSource, strDestination);
-                progressBar1.Value += 1;
-                progressBar1.Update();
-
                 progressBar1.Refresh();
 
                 MessageBoxShow("Completed. ");
@@ -2282,7 +2293,7 @@ This image was generated with DNA Data Visualization software by T.Neugebauer<br
             lblDataLength.Text = "";
             lblSequenceName.Text = "";
             lblFASTAstats.Text = "";
-            textBoxRefSeq.Text = "";
+            lblRefSeq.Text = "";
             progressBar1.Value = 0;
         }
 
@@ -2320,9 +2331,8 @@ This image was generated with DNA Data Visualization software by T.Neugebauer<br
         private void launchMongoose(){
 
 
-            //Run Mongoose for localhost to be created in output folder
-            //allowing for SOAP requests to be sent to Swiss Bioinformatics Institute
-            //for Emboss geecee and nucleic_density applications
+            //Run Civetweb for localhost to be created in output folder
+            //for nucleic_density applications
             try
             {
             //make sure output folder exists, if it doesn't, create it

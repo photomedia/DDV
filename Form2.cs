@@ -52,5 +52,10 @@ namespace DDV
         {
             Process.Start(@Directory.GetCurrentDirectory() + "//jquery-MIT-license.txt");
         }
+
+        private void linkLabel7_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start(@Directory.GetCurrentDirectory() + "//biojs-apache-license.txt");
+        }
     }
 }

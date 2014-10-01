@@ -7,14 +7,14 @@
     <framework targetVersion="4.0" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="DDV.exe.manifest" size="24845">
+    <dependentAssembly dependencyType="install" codebase="DDV.exe.manifest" size="26371">
       <assemblyIdentity name="DDV.exe" version="1.0.0.32" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>UJhkyV88qbh6Q4ubv9Fw1y+UYvQ=</dsig:DigestValue>
+        <dsig:DigestValue>uhW0CdzM36RZK9LSymyLTFRq3aE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

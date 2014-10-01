@@ -26,5 +26,7 @@ Civetweb <https://github.com/sunsetbrew/civetweb >
 
 jQuery <http://jquery.com > 
 
+BioJS <https://github.com/biojs/biojs>
+
 
 
