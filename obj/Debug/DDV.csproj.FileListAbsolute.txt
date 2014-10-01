@@ -198,3 +198,4 @@ C:\DATA\bitbucket\ddv\obj\Debug\DDV.pdb
 C:\DATA\bitbucket\ddv\bin\Debug\nucleicDensity.js
 C:\DATA\bitbucket\ddv\bin\Debug\density.php
 C:\DATA\bitbucket\ddv\bin\Debug\biojs-apache-license.txt
+C:\DATA\bitbucket\ddv\obj\Debug\DDV.csprojResolveAssemblyReference.cache

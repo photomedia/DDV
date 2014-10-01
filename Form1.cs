@@ -35,7 +35,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
  * PHP license: php-license.txt
  * Civetweb license: civetweb-license.txt
  * jQuery license: jQuery-MIT-license.txt
- * 
+ * BioJS license: biojs-apache-license.txt
  */
 
 
@@ -796,18 +796,6 @@ namespace DDV
             pal.Entries[3] = Color.FromArgb(255, 250, 240, 114);//T
             pal.Entries[4] = Color.FromArgb(255, 0, 0, 255);//C
             pal.Entries[5] = Color.FromArgb(255, 30, 30, 30);//N
-            /*
-            pal.Entries[6] = Color.FromArgb(255, 255, 106, 106);//R
-            pal.Entries[7] = Color.FromArgb(255, 226, 226, 255);//Y
-            pal.Entries[8] = Color.FromArgb(255, 0, 47, 0);//S
-            pal.Entries[9] = Color.FromArgb(255, 255, 218, 218);//W
-            pal.Entries[10] = Color.FromArgb(255, 192, 255, 192);//K
-            pal.Entries[11] = Color.FromArgb(255, 93, 0, 0);//M
-            pal.Entries[12] = Color.FromArgb(255, 155, 142, 122);//B
-            pal.Entries[13] = Color.FromArgb(255, 89, 83, 0);//D
-            pal.Entries[14] = Color.FromArgb(255, 0, 0, 200);//H
-            pal.Entries[15] = Color.FromArgb(255, 81, 78, 48);//V
-            */
             pal.Entries[6] = Color.FromArgb(255, 60, 60, 60);//R
             pal.Entries[7] = Color.FromArgb(255, 70, 70, 70);//Y
             pal.Entries[8] = Color.FromArgb(255, 80, 80, 80);//S
