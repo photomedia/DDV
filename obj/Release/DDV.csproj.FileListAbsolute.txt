@@ -254,5 +254,4 @@ C:\DATA\bitbucket\ddv\bin\Release\openseadragon.min.js
 C:\DATA\bitbucket\ddv\bin\Release\openseadragon.min.js.map
 C:\DATA\bitbucket\ddv\bin\Release\nucleicDensity.js
 C:\DATA\bitbucket\ddv\bin\Release\density.php
-C:\DATA\bitbucket\ddv\obj\Release\DDV.csprojResolveAssemblyReference.cache
 C:\DATA\bitbucket\ddv\bin\Release\biojs-apache-license.txt

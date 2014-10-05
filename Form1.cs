@@ -14,10 +14,11 @@ using System.Net;
 using Microsoft.DeepZoomTools;
 using System.Collections.Generic;
 using System.Xml;
+using System.Runtime.InteropServices;
 
 /*
 
-Copyright (c) 2013, Tomasz Neugebauer
+Copyright (c) 2014, Tomasz Neugebauer
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -58,7 +59,7 @@ namespace DDV
         private static string m_strSourceBitmapFile;
         private System.Windows.Forms.Label lblSequenceName;
         private SaveFileDialog saveDialog;
-        private ProgressBar progressBar1;
+        public ProgressBar progressBar1;
         private Label lblFASTAstats;
         private Label lblProgressText;
         private Label lblDNAViewer;
@@ -68,8 +69,8 @@ namespace DDV
         public string gi = "";
         public string m_strFinalDestinationFolder = "";
 
-        BitmapData glbl_bmd;
-        Bitmap glbl_b;
+        //BitmapData glbl_bmd;
+        //Bitmap glbl_b;
         private RichTextBox resultLogTextBox;
         private Label label5;
         private TextBox txtGI;
@@ -78,7 +79,7 @@ namespace DDV
         private Label label6;
         private Label label8;
         private Label lblSourceBitmapFilename;
-        private Process m_prcMongoose;
+        private Process m_prcCivetweb;
         private FolderBrowserDialog fDlgFinalDestination;
         private Button btnFinalDestinationFolder;
         private GroupBox groupBox3;
@@ -118,7 +119,7 @@ namespace DDV
 
             buttonProcessBitmapDeepZoom.Enabled = false;
             checkEnvironment();
-            launchMongoose();
+            launchCivetweb();
             SetFinalDestinationFolder(@Directory.GetCurrentDirectory() + "\\output\\");
             btnGeneratedIntefaces.Enabled = true;
             
@@ -131,11 +132,11 @@ namespace DDV
 		protected override void Dispose( bool disposing )
 		{
             
-             if (m_prcMongoose != null)
+             if (m_prcCivetweb != null)
                 {
-                    if (!m_prcMongoose.HasExited)
+                    if (!m_prcCivetweb.HasExited)
                     {
-                        killMongoose();
+                        killCivetweb();
                     }
                 }
 			if( disposing )
@@ -546,7 +547,7 @@ namespace DDV
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(251, 13);
             this.label4.TabIndex = 34;
-            this.label4.Text = "Recommended: 3000 for bacteria, 10000 for human";
+            this.label4.Text = "Recommended: 3000 for bacteria, 20000 for human";
             // 
             // textBoxTileSize
             // 
@@ -784,7 +785,7 @@ namespace DDV
 
 		}
 
-        public static void SetMyPalette(Bitmap b)
+        public static void SetMyPalette(ref Bitmap b)
         {
             ColorPalette pal = b.Palette;
             for (int i = 0; i < 16; i++)
@@ -814,14 +815,13 @@ namespace DDV
         }
 
 
-        public unsafe void UnsafeSetPixel(int x, int y, byte c)
+        public unsafe void UnsafeSetPixel(int x, int y, byte c, ref BitmapData bmd)
         {
            // BitmapData bmd = b.LockBits(new Rectangle(0, 0, b.Width, b.Height),
           //                ImageLockMode.ReadWrite, b.PixelFormat);
-            byte* p = (byte*)glbl_bmd.Scan0.ToPointer();
-            int offset = y * glbl_bmd.Stride + x;
+            byte* p = (byte*)bmd.Scan0.ToPointer();
+            int offset = y * bmd.Stride + x;
             p[offset] = c;
-          //  b.UnlockBits(bmd);
         }
 
 
@@ -830,7 +830,7 @@ namespace DDV
 
        
 
-        public void Write1BaseToBMPUncompressed4X(int intStart, int intEnd, Bitmap Tex, int x, int y)
+        public void Write1BaseToBMPUncompressed4X(int intStart, int intEnd, ref Bitmap Tex, int x, int y, ref BitmapData bmd)
         {
 
     
@@ -964,31 +964,31 @@ namespace DDV
             //end
 
             
-            UnsafeSetPixel(x, y, bytePaletteIndex);
-            UnsafeSetPixel(x, y+1, bytePaletteIndex);
-            UnsafeSetPixel(x+1, y+1, bytePaletteIndex);
-            UnsafeSetPixel(x+1, y, bytePaletteIndex);
+            UnsafeSetPixel(x, y, bytePaletteIndex, ref bmd);
+            UnsafeSetPixel(x, y+1, bytePaletteIndex, ref bmd);
+            UnsafeSetPixel(x+1, y+1, bytePaletteIndex, ref bmd);
+            UnsafeSetPixel(x+1, y, bytePaletteIndex, ref bmd);
 
         }
 
      
     
-        public void WriteToBMPUncompressed4X(int intStart, int intEnd, Bitmap Tex, int x, int y)
+        public void WriteToBMPUncompressed4X(int intStart, int intEnd, ref Bitmap Tex, int x, int y, ref BitmapData bmd)
         {
             
             for (int i = 0; i < 10; i++)
             {
-                Write1BaseToBMPUncompressed4X(intStart + i, intStart + i + 1, Tex, x + (i*2), y);
+                Write1BaseToBMPUncompressed4X(intStart + i, intStart + i + 1, ref Tex, x + (i*2), y, ref bmd);
             }
         }
 
-        public void WriteToBMPVariableLengthUncompressed4X(int intStart, int intEnd, Bitmap Tex, int x, int y, int iLength)
+        public void WriteToBMPVariableLengthUncompressed4X(int intStart, int intEnd, ref Bitmap Tex, int x, int y, int iLength, ref BitmapData bmd)
         {
             
 
             for (int i = 0; i < iLength; i++)
             {
-                Write1BaseToBMPUncompressed4X(intStart + i, intStart + i + 1, Tex, x + (i * 2), y);
+                Write1BaseToBMPUncompressed4X(intStart + i, intStart + i + 1, ref Tex, x + (i * 2), y, ref bmd);
             }
         }
 
@@ -1049,116 +1049,7 @@ namespace DDV
         public int ipV = 0;
         public int ipN = 0;
         public int ipUnknown = 0;
-
-
-        
-
-        public int BMPColorTableUncompressed4X(Bitmap bmpTex)
-        {
-
-
-            int boundX = bmpTex.Width;
-            int boundY = bmpTex.Height-1;
-            int intMagnification = 2;
-               
-
-            int i = 0;
-            int counter = 0;
-            bool end = false;
-            string firstLetter = null;
-
-            int x = 0;
-            int y = 0;
-
-            StreamReader s3 = File.OpenText(m_strSourceFile);
-
-
-            // Lets get the length so that when we are reading we know
-            // when we have hit a "milestone" and to update the progress bar.
-            FileInfo fileSize = new FileInfo(m_strSourceFile);
-            long size = fileSize.Length;
-
-            progressBar1.Minimum = 0;
-            progressBar1.Maximum = (int)size;
-            progressBar1.Value += 1;
-
-            while (((read = s3.ReadLine()) != null) && !end)
-            {
-                if (read == "")
-                { //skip 
-                }
-                else
-                {
-                progressBar1.Value += (int)read.Length;
-                progressBar1.Update();
-                progressBar1.Refresh();
-
-                firstLetter = read.Substring(0, 1);
-
-                if (firstLetter == ">")
-                {
-
-                }
-
-                else
-                {
-                    read = CleanInputFile(read);
-                    read = ConvertToDigits(read);
-
-
-                    //7 times 10 = 1 line
-                    for (int j = 1; j <= (iLineLength/10); j++)
-                    {
-                        //read in multiples of 10
-                        if (read.Length >= (j * 10))
-                        {
-                            //Tex.Write(strFront);
-                            //split further into 3 
-                            WriteToBMPUncompressed4X((j - 1) * 10, j * 10, bmpTex, x, y);
-                            x = x + 10 * intMagnification;
-                            //DataLengthCounter=DataLengthCounter+24;
-                        }
-                        else if (EndOfSequence == "")
-                        {
-                            EndOfSequence = ConvertToTGACN(read.Substring((j - 1) * 10, read.Length - ((j - 1) * 10)));
-                            WriteToBMPVariableLengthUncompressed4X((j - 1) * 10, j * 10, bmpTex, x, y,EndOfSequence.Length);
-                            x = x + EndOfSequence.Length * intMagnification;
-                            break;
-                        }
-
-                    }
-                    x = x - iLineLength * intMagnification;
-
-                    
-                    i++;
-                    y = y + intMagnification;
-                    if (y >= boundY)
-                    {
-                        x = x + (iLineLength*intMagnification) + 4;
-                        y = 0;
-                    }
-
-                    if (x >= boundX)
-                    {
-                        x = 0;
-                        counter++;
-                        end = true;
-
-
-                    }
-
-                    
-                }
-                
-            }
-            }
-      
-            s3.Close();
-            return (counter);
-
-        }
-
-        
+       
 
         private int populateInfo()
         {
@@ -1278,6 +1169,21 @@ namespace DDV
 
         }
 
+        private void SaveBMP(ref Bitmap bmp, string strPath) // now 'ref' parameter
+        {
+            try
+            {
+                bmp.Save(strPath, System.Drawing.Imaging.ImageFormat.Png);
+            }
+            catch
+            {
+                Bitmap bitmap = (Bitmap) bmp.Clone();
+                bmp.Dispose();
+                bitmap.Save(strPath, System.Drawing.Imaging.ImageFormat.Png);
+            }
+        }
+
+
         private void InitializeMakeBitmap()
         {
 
@@ -1338,120 +1244,246 @@ namespace DDV
             int x = (numColumns * iColumnWidth) - iPaddingBetweenColumns; //last column has no padding.
             MessageBoxShow("x: " + x);
 
+            if ((x > Math.Pow(2, 16)))
+            {
+                throw new System.Exception("Width of image (x) would be greater than 65536 (2^16). \n Try setting a larger Image height for this data so that the image width becomes smaller.");
+            }
+            if ((y > Math.Pow(2, 16)))
+            {
+                throw new System.Exception("Image height is set to be greater than the maximum 65536 (2^16). Try setting a smaller height for this data and try again.");
+        
+            }
+
 
             // Bitmap B = new Bitmap(x, y);
-            string strMessage = "Initializing BMP width=" + x + " height=" + y;
+            string strMessage = "Initializing PNG width=" + x + " height=" + y;
             MessageBoxShow(strMessage);
 
-            //Graphics graphicsObj;
-            //Bitmap B = new Bitmap(x, y, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
-            //graphicsObj = Graphics.FromImage(B);
-            //graphicsObj.Clear(System.Drawing.Color.Black);
-
-            //Bitmap B = new Bitmap(x, y, System.Drawing.Imaging.PixelFormat.Format8bppIndexed);
-            //SetMyPalette(B);
-            glbl_b = new Bitmap(x, y, System.Drawing.Imaging.PixelFormat.Format8bppIndexed);
-            SetMyPalette(glbl_b);
-            glbl_bmd = glbl_b.LockBits(new Rectangle(0, 0, glbl_b.Width, glbl_b.Height),
-                         ImageLockMode.ReadWrite, glbl_b.PixelFormat);
+            Bitmap b = new Bitmap(x, y, System.Drawing.Imaging.PixelFormat.Format8bppIndexed);
+            SetMyPalette(ref b);
+            BitmapData bmd = b.LockBits(new Rectangle(0, 0, b.Width, b.Height),ImageLockMode.ReadWrite, b.PixelFormat);
 
 
             for (int i = 0; i < x; i++)
             {
                 for (int j = 0; j < y; j++)
                 {
-                    //B.SetPixel(i, j, Color.FromArgb(0, 0, 0));
-                    UnsafeSetPixel(i, j, (byte)0);
+                    UnsafeSetPixel(i, j, (byte)0, ref bmd);
                 }
             }
-            MessageBoxShow("BMP Initialized");
-            counter = BMPColorTableUncompressed4X(glbl_b);
+            
+            MessageBoxShow("PNG Initialized");
 
-            //string strResultFileName = TheFile.Name + intMagnification+"X-uncompressed.png";
-            string strResultFileName = gi + ".png";
-            glbl_b.Save(strResultFileName, System.Drawing.Imaging.ImageFormat.Png);
+            // Lets get the length so that when we are reading we know
+            // when we have hit a "milestone" and to update the progress bar.
+            FileInfo fileSize = new FileInfo(m_strSourceFile);
+            long size = fileSize.Length;
+            progressBar1.Minimum = 0;
+            progressBar1.Maximum = (int)size;
 
-            MessageBoxShow("File generated " + strResultFileName);
+            BackgroundWorker workerBMPPainter = new BackgroundWorker();
+            workerBMPPainter.WorkerReportsProgress = true;
+            workerBMPPainter.WorkerSupportsCancellation = true;
+            workerBMPPainter.ProgressChanged += (u, args) =>
+            {
+                  progressBar1.Value = args.ProgressPercentage; 
+            };
+            workerBMPPainter.DoWork += (u, args) =>
+            {
+                BackgroundWorker worker = u as BackgroundWorker;
+                //----------------------------convert data to pixels---------------------------------
+                int boundX = b.Width;
+                int boundY = b.Height - 1;
+                //int intMagnification = 2;
 
-            string sourceFile = strResultFileName;
-            string destinationFile = TheFile.DirectoryName + Path.DirectorySeparatorChar + strResultFileName;
-            MoveWithReplace(sourceFile, destinationFile);
-            MessageBoxShow("File moved to -> " + destinationFile);
 
-            BitmapSet(destinationFile);
-            glbl_b.UnlockBits(glbl_bmd);
-            glbl_b.Dispose();
+                int i = 0;
+                counter = 0;
+                bool end = false;
+                string firstLetter = null;
 
-            if (counter != 0) { MessageBoxShow("Error: Number of Times Max Width Reached:" + counter.ToString()); }
-            int iTotal = iA + iT + iG + iC + iR + iY + iS + iW + iK + iM + iB + iD + iH + iV + iN;
-            int ipTotal = ipA + ipT + ipG + ipC + ipR + ipY + ipS + ipW + ipK + ipM + ipB + ipD + ipH + ipV + ipN;
-            strFastaStats = "FASTA Stats for " + lblSequenceName.Text +
-            "\n\nA:" + iA + " processed: " + ipA +
-            "\nT:" + iT + " processed: " + ipT +
-            "\nG:" + iG + " processed: " + ipG +
-            "\nC:" + iC + " processed: " + ipC +
-            "\nR:" + iR + " processed: " + ipR +
-            " | Y:" + iY + " processed: " + ipY +
-            " | S:" + iS + " processed: " + ipS +
-            " | W:" + iW + " processed: " + ipW +
-            " | K:" + iK + " processed: " + ipK +
-            " | M:" + iM + " processed: " + ipM +
-            " | B:" + iB + " processed: " + ipB +
-            " | D:" + iD + " processed: " + ipD +
-            " | H:" + iH + " processed: " + ipH +
-            " | V:" + iV + " processed: " + ipV +
-            "\nN:" + iN + " processed: " + ipN +
-            "\nUnknown:" + iUnknown + " processed: " + ipUnknown +
-            "\niTotal:" + iTotal + " ipTotal: " + ipTotal +
-            "\n---------------------------------------\n";
-            lblFASTAstats.Text = strFastaStats;
-            strFastaStats += resultLogTextBox.Text;
-            //Tex.Write(strFastaStats);
-            //MessageBoxShow("File generated " + strResultFileName);
-            //Tex.Close();
-            //move file
-            //sourceFile = strResultFileName;
-            //destinationFile = TheFile.DirectoryName + Path.DirectorySeparatorChar + strResultFileName;
-            // To move a file or folder to a new location:
-            //System.IO.File.Move(sourceFile, destinationFile);
-            //MoveWithReplace(sourceFile, destinationFile);
-            //MessageBoxShow("File moved to -> " + destinationFile);
+                int x_pointer = 0;
+                int y_pointer = 0;
+                int progress = 0;
 
-            //embed.html
-            strResultFileName = "embed.html";
-            FileInfo t = new FileInfo(strResultFileName);
-            StreamWriter Tex = t.CreateText();
-            StringWriter wr = new StringWriter();
-            string embedHTML = @"
+                StreamReader s3 = File.OpenText(m_strSourceFile);
+
+                progress = progress + 1;
+                worker.ReportProgress(progress);
+
+                while (((read = s3.ReadLine()) != null) && !end)
+                {
+                    if (read == "")
+                    { //skip 
+                    }
+                    else
+                    {
+                        progress += (int)read.Length;
+                        worker.ReportProgress(progress);
+
+                        firstLetter = read.Substring(0, 1);
+
+                        if (firstLetter == ">")
+                        {
+
+                        }
+
+                        else
+                        {
+                            read = CleanInputFile(read);
+                            read = ConvertToDigits(read);
+
+
+                            //7 times 10 = 1 line
+                            for (int j = 1; j <= (iLineLength / 10); j++)
+                            {
+                                //read in multiples of 10
+                                if (read.Length >= (j * 10))
+                                {
+                                    //Tex.Write(strFront);
+                                    //split further into 3 
+                                    WriteToBMPUncompressed4X((j - 1) * 10, j * 10, ref b, x_pointer, y_pointer, ref bmd);
+                                    x_pointer = x_pointer + 10 * intMagnification;
+                                    //DataLengthCounter=DataLengthCounter+24;
+                                }
+                                else if (EndOfSequence == "")
+                                {
+                                    EndOfSequence = ConvertToTGACN(read.Substring((j - 1) * 10, read.Length - ((j - 1) * 10)));
+                                    WriteToBMPVariableLengthUncompressed4X((j - 1) * 10, j * 10, ref b, x_pointer, y_pointer, EndOfSequence.Length, ref bmd);
+                                    x_pointer = x_pointer + EndOfSequence.Length * intMagnification;
+                                    break;
+                                }
+
+                            }
+                            x_pointer = x_pointer - iLineLength * intMagnification;
+
+
+                            i++;
+                            y_pointer = y_pointer + intMagnification;
+                            if (y_pointer >= boundY)
+                            {
+                                x_pointer = x_pointer + (iLineLength * intMagnification) + 4;
+                                y_pointer = 0;
+                            }
+
+                            if (x_pointer >= boundX)
+                            {
+                                x_pointer = 0;
+                                counter++;
+                                end = true;
+                                //this would be an unexpected error, throw an exception
+                                throw new System.Exception("Unexpected error while converting data.  Attempt to paint a pixel outside of image bounds. Please review the parameters and ensure the data is in FASTA format, with 70 nucleotides per line. ");
+                            }
+
+
+                        }
+
+                    }
+                }
+
+                s3.Close();
+               
+                //----------------------------end of convert data to pixels--------------------------
+            };
+            workerBMPPainter.RunWorkerAsync();
+            workerBMPPainter.RunWorkerCompleted += (u, args) =>
+            {
+                MessageBoxShow("Completed mapping DNA to pixels.  Saving result...");
+
+                b.UnlockBits(bmd);
+                bmd = null;
+                string strResultFileName = gi + ".png";
+                //if file exists, delete
+                if (File.Exists(strResultFileName))
+                {
+                    MessageBoxShow("Removing temp version of PNG file.");
+                    File.Delete(strResultFileName);
+                }
+                try
+                {
+                    b.Save(strResultFileName, System.Drawing.Imaging.ImageFormat.Png);
+                }
+                catch
+                {
+                    throw new System.Exception("Error.  Could not save BMP file.  ");
+                }
+                b.Dispose();
+                MessageBoxShow("File saved " + strResultFileName);
+
+                string sourceFile = strResultFileName;
+                string destinationFile = TheFile.DirectoryName + Path.DirectorySeparatorChar + strResultFileName;
+                MoveWithReplace(sourceFile, destinationFile);
+                MessageBoxShow("File moved to -> " + destinationFile);
+                BitmapSet(destinationFile);
+
+
+                if (counter != 0) { MessageBoxShow("Error: Number of Times Max Width Reached:" + counter.ToString()); }
+                int iTotal = iA + iT + iG + iC + iR + iY + iS + iW + iK + iM + iB + iD + iH + iV + iN;
+                int ipTotal = ipA + ipT + ipG + ipC + ipR + ipY + ipS + ipW + ipK + ipM + ipB + ipD + ipH + ipV + ipN;
+                strFastaStats = "FASTA Stats for " + lblSequenceName.Text +
+                "\n\nA:" + iA + " processed: " + ipA +
+                "\nT:" + iT + " processed: " + ipT +
+                "\nG:" + iG + " processed: " + ipG +
+                "\nC:" + iC + " processed: " + ipC +
+                "\nR:" + iR + " processed: " + ipR +
+                " | Y:" + iY + " processed: " + ipY +
+                " | S:" + iS + " processed: " + ipS +
+                " | W:" + iW + " processed: " + ipW +
+                " | K:" + iK + " processed: " + ipK +
+                " | M:" + iM + " processed: " + ipM +
+                " | B:" + iB + " processed: " + ipB +
+                " | D:" + iD + " processed: " + ipD +
+                " | H:" + iH + " processed: " + ipH +
+                " | V:" + iV + " processed: " + ipV +
+                "\nN:" + iN + " processed: " + ipN +
+                "\nUnknown:" + iUnknown + " processed: " + ipUnknown +
+                "\niTotal:" + iTotal + " ipTotal: " + ipTotal +
+                "\n---------------------------------------\n";
+                lblFASTAstats.Text = strFastaStats;
+                strFastaStats += resultLogTextBox.Text;
+               
+
+                FileInfo f = new FileInfo(m_strFinalDestinationFolder + "//sequence.fasta");
+                long direct_data_file_length = f.Length;
+
+                //embed.html
+                strResultFileName = "embed.html";
+                FileInfo t = new FileInfo(strResultFileName);
+                StreamWriter Tex = t.CreateText();
+                StringWriter wr = new StringWriter();
+                string embedHTML = @"
 <!DOCTYPE html>
 <html lang='en'>
 <head>
 <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
 <title>DNA Data Visualization : " + lblSequenceName.Text +
-            @"</title>
+                @"</title>
 <script src='../../openseadragon.min.js' type='text/javascript'></script>
 <script type='text/javascript' src='../../jquery-1.7.min.js'></script>
 <script src='../../openseadragon-scalebar.js' type='text/javascript'></script>
 
 <script type='text/javascript'>
 	        var originalImageWidth= " + x + ";" +
-            @"
+                @"
             var originalImageHeight= " + y + ";" +
-            @"
+                @"
             var pixelSize = 2;
             var ColumnPadding = 4;
             var iLineLength = 70;
             var usa='refseq_fetch:" + lblRefSeq.Text + "';" +
-            @"          
+                @"          
             var ipTotal = " + ipTotal + ";" +
-            @"
-            var direct_data_file='sequence.fasta';
+                @"
+            var direct_data_file='sequence.fasta';" +
+                @"
+            var direct_data_file_length=" + direct_data_file_length + ";" +
+                @"
             var sbegin='1';
             var send=ipTotal.toString(); 
             </script>
 <script src='../../nucleotideNumber.js' type='text/javascript'></script>
 <script src='../../nucleicDensity.js' type='text/javascript'></script>";
-            embedHTML = embedHTML + @"<link rel='stylesheet' type='text/css' href='../../seadragon.css' />
+                embedHTML = embedHTML + @"<link rel='stylesheet' type='text/css' href='../../seadragon.css' />
     <!-- BIOJS css -->
 	<script language='JavaScript' type='text/javascript' src='../../Biojs.js'></script>
 	<!-- component code -->
@@ -1465,34 +1497,34 @@ namespace DDV
 	<li><a href='../'>Select Visualization</a></li>
 	 </ul>
 <h2 class='mainTitle'><strong>" + lblSequenceName.Text +
-                        @"</strong> 
+                            @"</strong> 
  </h2>
 
 <div id='container'>
 </div>
 
 <p class='legendHeading'><strong>Legend:</strong><br /></p><div style='margin-left:50px;'>";
-            if (iA != 0) { embedHTML = embedHTML + @"<img src='../../LEGEND-A.png' />"; }
-            if (iT != 0) { embedHTML = embedHTML + @"<img src='../../LEGEND-T.png' />"; }
-            if (iG != 0) { embedHTML = embedHTML + @"<img src='../../LEGEND-G.png' />"; }
-            if (iC != 0) { embedHTML = embedHTML + @"<img src='../../LEGEND-C.png' />"; }
-            if (iR != 0) { embedHTML = embedHTML + @"<img src='../../LEGEND-R.png' />"; }
-            if (iY != 0) { embedHTML = embedHTML + @"<img src='../../LEGEND-Y.png' />"; }
-            if (iS != 0) { embedHTML = embedHTML + @"<img src='../../LEGEND-S.png' />"; }
-            if (iW != 0) { embedHTML = embedHTML + @"<img src='../../LEGEND-W.png' />"; }
-            if (iK != 0) { embedHTML = embedHTML + @"<img src='../../LEGEND-K.png' />"; }
-            if (iM != 0) { embedHTML = embedHTML + @"<img src='../../LEGEND-M.png' />"; }
-            if (iB != 0) { embedHTML = embedHTML + @"<img src='../../LEGEND-B.png' />"; }
-            if (iD != 0) { embedHTML = embedHTML + @"<img src='../../LEGEND-D.png' />"; }
-            if (iH != 0) { embedHTML = embedHTML + @"<img src='../../LEGEND-H.png' />"; }
-            if (iV != 0) { embedHTML = embedHTML + @"<img src='../../LEGEND-V.png' />"; }
-            if (iN != 0) { embedHTML = embedHTML + @"<img src='../../LEGEND-N.png' />"; }
-            embedHTML = embedHTML + @"<img src='../../LEGEND-bg.png' /></div>
+                if (iA != 0) { embedHTML = embedHTML + @"<img src='../../LEGEND-A.png' />"; }
+                if (iT != 0) { embedHTML = embedHTML + @"<img src='../../LEGEND-T.png' />"; }
+                if (iG != 0) { embedHTML = embedHTML + @"<img src='../../LEGEND-G.png' />"; }
+                if (iC != 0) { embedHTML = embedHTML + @"<img src='../../LEGEND-C.png' />"; }
+                if (iR != 0) { embedHTML = embedHTML + @"<img src='../../LEGEND-R.png' />"; }
+                if (iY != 0) { embedHTML = embedHTML + @"<img src='../../LEGEND-Y.png' />"; }
+                if (iS != 0) { embedHTML = embedHTML + @"<img src='../../LEGEND-S.png' />"; }
+                if (iW != 0) { embedHTML = embedHTML + @"<img src='../../LEGEND-W.png' />"; }
+                if (iK != 0) { embedHTML = embedHTML + @"<img src='../../LEGEND-K.png' />"; }
+                if (iM != 0) { embedHTML = embedHTML + @"<img src='../../LEGEND-M.png' />"; }
+                if (iB != 0) { embedHTML = embedHTML + @"<img src='../../LEGEND-B.png' />"; }
+                if (iD != 0) { embedHTML = embedHTML + @"<img src='../../LEGEND-D.png' />"; }
+                if (iH != 0) { embedHTML = embedHTML + @"<img src='../../LEGEND-H.png' />"; }
+                if (iV != 0) { embedHTML = embedHTML + @"<img src='../../LEGEND-V.png' />"; }
+                if (iN != 0) { embedHTML = embedHTML + @"<img src='../../LEGEND-N.png' />"; }
+                embedHTML = embedHTML + @"<img src='../../LEGEND-bg.png' /></div>
 
 <script type='text/javascript'>
 	        outputTable();";
-            if (chckIncludeDensity.Checked == true) { embedHTML = embedHTML + @"outputDensityUI();"; }
-            embedHTML = embedHTML + @"</script>
+                if (chckIncludeDensity.Checked == true) { embedHTML = embedHTML + @"outputDensityUI();"; }
+                embedHTML = embedHTML + @"</script>
 
 <div class='legend-details'>
 <h3>Data Source:</h3>
@@ -1500,13 +1532,13 @@ namespace DDV
 <a href='sequence.fasta'>FASTA file</a><br />";
 
 
-            if (gi!="")
-            {
-                embedHTML = embedHTML + @"
+                if (gi != "")
+                {
+                    embedHTML = embedHTML + @"
 NCBI (gi): <a href='http://www.ncbi.nlm.nih.gov/nuccore/" + gi + @"'>http://www.ncbi.nlm.nih.gov/nuccore/" + gi + @"</a><br />";
-            }
+                }
 
-            embedHTML = embedHTML + @"
+                embedHTML = embedHTML + @"
 
 <h3>Notes</h3>
 This DNA data visualization interface was generated with <a href='https://bitbucket.org/tneugebauer/ddv'>DDV</a><br />Date Visualization Created:" + DateTime.Now.ToString("d/MM/yyyy") + @"
@@ -1518,20 +1550,30 @@ This DNA data visualization interface was generated with <a href='https://bitbuc
 
 </html>
             ";
-            Tex.Write(embedHTML);
-            MessageBoxShow("File generated " + strResultFileName);
-            wr.Close();
-            Tex.Close();
+                Tex.Write(embedHTML);
+                MessageBoxShow("File generated " + strResultFileName);
+                wr.Close();
+                Tex.Close();
 
-            //move file
-            sourceFile = strResultFileName;
-            destinationFile = TheFile.DirectoryName + Path.DirectorySeparatorChar + strResultFileName;
-            MoveWithReplace(sourceFile, destinationFile);
-            MessageBoxShow("File moved to -> " + destinationFile);
+                //move file
+                sourceFile = strResultFileName;
+                destinationFile = TheFile.DirectoryName + Path.DirectorySeparatorChar + strResultFileName;
+                MoveWithReplace(sourceFile, destinationFile);
+                MessageBoxShow("File moved to -> " + destinationFile);
 
-            //end of embed.html
-            // Set cursor as default arrow
-            Cursor.Current = Cursors.Default;
+                //end of embed.html
+                // Set cursor as default arrow
+                Cursor.Current = Cursors.Default;
+
+                MessageBoxShow("Completed.");
+                MessageBoxShow("Image and interface files generated. Click on Process Image with Deepzoom for the final step.");
+                //enable deepzoomprocessing
+                buttonProcessBitmapDeepZoom.Enabled = true;
+
+                
+            };
+
+           
         }
 
         //Generates Bitmap from Data
@@ -1540,11 +1582,6 @@ This DNA data visualization interface was generated with <a href='https://bitbuc
             try
             {
                 InitializeMakeBitmap();
-
-                MessageBoxShow("Completed.");
-                MessageBoxShow("Image and interface files generated. Click on Process Image with Deepzoom for the final step.");
-                //enable deepzoomprocessing
-                buttonProcessBitmapDeepZoom.Enabled = true;
             }
             catch (ArgumentNullException)
             {
@@ -2316,7 +2353,7 @@ This DNA data visualization interface was generated with <a href='https://bitbuc
 
      
        
-        private void launchMongoose(){
+        private void launchCivetweb(){
 
 
             //Run Civetweb for localhost to be created in output folder
@@ -2324,11 +2361,11 @@ This DNA data visualization interface was generated with <a href='https://bitbuc
             try
             {
             //make sure output folder exists, if it doesn't, create it
-            //initialize Mongoose is set to use this location as default localhost
+            //initialize Civetweb is set to use this location as default localhost
             if (!Directory.Exists("output")) { Directory.CreateDirectory("output"); }
 
             BackgroundWorker bw = new BackgroundWorker();
-            bw.DoWork += new DoWorkEventHandler(mongoose_doWork);
+            bw.DoWork += new DoWorkEventHandler(Civetweb_doWork);
             bw.RunWorkerAsync();
             
 
@@ -2378,19 +2415,19 @@ This DNA data visualization interface was generated with <a href='https://bitbuc
                
         }
 
-        private void mongoose_doWork(object sender, DoWorkEventArgs e)
+        private void Civetweb_doWork(object sender, DoWorkEventArgs e)
         {
             try
             {
-                m_prcMongoose = new Process();
-                m_prcMongoose.StartInfo.CreateNoWindow = true;
-                m_prcMongoose.StartInfo.FileName = "civetweb.exe";
-                m_prcMongoose.StartInfo.UseShellExecute = false;
-                //m_prcMongoose.StartInfo.RedirectStandardOutput = true;
-                //m_prcMongoose.StartInfo.RedirectStandardError = true;
-                MessageBoxShow("Calling function: " + m_prcMongoose.StartInfo.FileName + m_prcMongoose.StartInfo.Arguments);
-                m_prcMongoose.Start();
-                m_prcMongoose.WaitForExit();
+                m_prcCivetweb = new Process();
+                m_prcCivetweb.StartInfo.CreateNoWindow = true;
+                m_prcCivetweb.StartInfo.FileName = "civetweb.exe";
+                m_prcCivetweb.StartInfo.UseShellExecute = false;
+                //m_prcCivetweb.StartInfo.RedirectStandardOutput = true;
+                //m_prcCivetweb.StartInfo.RedirectStandardError = true;
+                MessageBoxShow("Calling function: " + m_prcCivetweb.StartInfo.FileName + m_prcCivetweb.StartInfo.Arguments);
+                m_prcCivetweb.Start();
+                m_prcCivetweb.WaitForExit();
             
             }
             catch (System.Security.SecurityException)
@@ -2413,13 +2450,13 @@ This DNA data visualization interface was generated with <a href='https://bitbuc
            
         }
 
-        private void killMongoose()
+        private void killCivetweb()
         {
             
             try
             {
-                m_prcMongoose.Kill();
-                m_prcMongoose.Dispose();
+                m_prcCivetweb.Kill();
+                m_prcCivetweb.Dispose();
 
              }
             catch (ArgumentNullException)
