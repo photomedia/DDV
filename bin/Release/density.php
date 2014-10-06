@@ -16,6 +16,8 @@ if(isset($_GET["start"])) {$start=$_GET["start"];}
 if(isset($_GET["end"])) {$end=$_GET["end"];}
 if(isset($_GET["filepath"])) {$filepath=$_GET["filepath"];}
 
+$filepath = preg_replace ( "/.*(?=dnadata)/" , "" , $filepath );
+
 $file=$filepath."sequence.fasta";
 
 $g=0;

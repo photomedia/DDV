@@ -54,7 +54,9 @@
 								    }
 								  }
 								  });
-            		
+            		 
+            		 $('#SequenceFragmentInstruction').hide();
+
             			
             		
             		

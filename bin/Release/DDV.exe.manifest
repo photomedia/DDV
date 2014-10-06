@@ -4,7 +4,7 @@
   <description asmv2:iconFile="App.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="DDV" version="1.0.5390.30492" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="DDV" version="1.0.5392.23776" language="neutral" processorArchitecture="msil" />
     <commandLine file="DDV.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -44,13 +44,13 @@
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DDV.exe" size="73728">
-      <assemblyIdentity name="DDV" version="1.0.5390.30492" language="neutral" processorArchitecture="msil" />
+      <assemblyIdentity name="DDV" version="1.0.5392.23776" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>zgT19hZLZIe1Qf0YqTPdKkrejOM=</dsig:DigestValue>
+        <dsig:DigestValue>vOp+1N6eDIRgOfAkv5uJHH7F9v0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -138,13 +138,13 @@
       <dsig:DigestValue>9Q2a8oYF6U1HtXTmNa41kA1q4dc=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="density.php" size="2282">
+  <file name="density.php" size="2350">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>r5IB/xLTZ4rRtkop9Ep9tSGoQKI=</dsig:DigestValue>
+      <dsig:DigestValue>SZd8J2iHLvSHgvjJoZ1JP3lXyNY=</dsig:DigestValue>
     </hash>
   </file>
   <file name="ext\php_curl.dll" size="461312">
@@ -489,13 +489,13 @@
       <dsig:DigestValue>XhbIoK9/fOOEmv4xHzXDeRwO7fU=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="nucleotideNumber.js" size="12179">
+  <file name="nucleotideNumber.js" size="12225">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>dinMwG5b+mvKcb0MVyoZTrQs9yU=</dsig:DigestValue>
+      <dsig:DigestValue>RsN5+9iGThpPwcZ4tyWYl1PhMQY=</dsig:DigestValue>
     </hash>
   </file>
   <file name="openseadragon.min.js" size="148263">
