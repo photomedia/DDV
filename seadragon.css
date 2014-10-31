@@ -102,3 +102,26 @@ a {
 }
 
 .resultdivider {border-top:1px solid #a0a0a0;}
+
+/*GC Skew CSS*/
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 1px;
+}
+
+g.tick {
+	font-size:8pt;
+}
+
+path{
+stroke: rgb(0, 0, 255);
+stroke-width: 1px;
+}

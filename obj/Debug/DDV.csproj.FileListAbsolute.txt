@@ -190,7 +190,6 @@ C:\DATA\bitbucket\ddv\bin\Debug\DDV.application
 C:\DATA\bitbucket\ddv\bin\Debug\DDV.exe
 C:\DATA\bitbucket\ddv\bin\Debug\DDV.pdb
 C:\DATA\bitbucket\ddv\bin\Debug\DeepZoomTools.DLL
-C:\DATA\bitbucket\ddv\obj\Debug\DDV.csprojResolveAssemblyReference.cache
 C:\DATA\bitbucket\ddv\obj\Debug\DDV.Form1.resources
 C:\DATA\bitbucket\ddv\obj\Debug\DDV.Form2.resources
 C:\DATA\bitbucket\ddv\obj\Debug\DDV.csproj.GenerateResource.Cache
@@ -199,3 +198,5 @@ C:\DATA\bitbucket\ddv\obj\Debug\DDV.exe.manifest
 C:\DATA\bitbucket\ddv\obj\Debug\DDV.application
 C:\DATA\bitbucket\ddv\obj\Debug\DDV.exe
 C:\DATA\bitbucket\ddv\obj\Debug\DDV.pdb
+C:\DATA\bitbucket\ddv\bin\Debug\d3.v3.js
+C:\DATA\bitbucket\ddv\bin\Debug\d3-license.txt

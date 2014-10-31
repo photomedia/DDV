@@ -57,5 +57,11 @@ namespace DDV
         {
             Process.Start(@Directory.GetCurrentDirectory() + "//biojs-apache-license.txt");
         }
+
+        private void linkLabel8_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start(@Directory.GetCurrentDirectory() + "//d3-license.txt");
+
+        }
     }
 }

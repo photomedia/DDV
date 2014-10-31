@@ -4,7 +4,7 @@
   <description asmv2:iconFile="App.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="DDV" version="1.0.5390.30490" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="DDV" version="1.0.5417.19240" language="neutral" processorArchitecture="msil" />
     <commandLine file="DDV.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -44,13 +44,13 @@
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DDV.exe" size="77824">
-      <assemblyIdentity name="DDV" version="1.0.5390.30490" language="neutral" processorArchitecture="msil" />
+      <assemblyIdentity name="DDV" version="1.0.5417.19240" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>GfYWd2MS9BnH9R5hx+h5z+ox9lQ=</dsig:DigestValue>
+        <dsig:DigestValue>rRZoUwi6IH5+Mud/Wb6yjh+fxaw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -120,13 +120,31 @@
       <dsig:DigestValue>e2EWA2XrmQQBnjtb4jZo7BiK8gw=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="DDV-license.txt" size="1990">
+  <file name="d3.v3.js" size="325951">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>qyG2/Wz1A0Ws6EOiX3AJIdy/rmM=</dsig:DigestValue>
+      <dsig:DigestValue>JB9JwMtLl2GYWSWqSLT1LSC7lLE=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="d3-license.txt" size="1432">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>xTEmYjtH37fEN3p4nmStjqtC8rM=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="DDV-license.txt" size="2018">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>LpcXH8NUX3cuoTkoXVAj/ty3AEE=</dsig:DigestValue>
     </hash>
   </file>
   <file name="DeepZoomToolsDLL-license.txt" size="12018">
@@ -489,13 +507,13 @@
       <dsig:DigestValue>XhbIoK9/fOOEmv4xHzXDeRwO7fU=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="nucleotideNumber.js" size="12240">
+  <file name="nucleotideNumber.js" size="16099">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>vVzMZTEZHmWUWDT/pLVQ9TI4KzA=</dsig:DigestValue>
+      <dsig:DigestValue>XY4V9oFK8eX7yQLrYGrSDkqrRfM=</dsig:DigestValue>
     </hash>
   </file>
   <file name="openseadragon.min.js" size="148263">
@@ -570,13 +588,13 @@
       <dsig:DigestValue>JoUORkdVc83TkFUyDIfLOFcNxO4=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="seadragon.css" size="2245">
+  <file name="seadragon.css" size="2520">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>V3l8aUCVGJSs25N2tjoWPprKXuM=</dsig:DigestValue>
+      <dsig:DigestValue>mAVzkhM6MjbC3TW87q7wgOuFdmw=</dsig:DigestValue>
     </hash>
   </file>
   <file name="ssleay32.dll" size="214016">

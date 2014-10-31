@@ -1976,7 +1976,16 @@ This DNA data visualization interface was generated with <a href='https://bitbuc
                 strDestination = finalDestinationPath + "nucleicDensity.js";
                 MessageBoxShow("Copying " + strSource + " to " + strDestination);
                 CopyFileNoReplace(strSource, strDestination);
-                progressBar1.Value += 2;
+                progressBar1.Value += 1;
+                progressBar1.Update();
+                progressBar1.Refresh();
+
+                //copy shared files into output folder
+                strSource = @Directory.GetCurrentDirectory() + "\\d3.v3.js";
+                strDestination = finalDestinationPath + "d3.v3.js";
+                MessageBoxShow("Copying " + strSource + " to " + strDestination);
+                CopyFileNoReplace(strSource, strDestination);
+                progressBar1.Value += 1;
                 progressBar1.Update();
                 progressBar1.Refresh();
 

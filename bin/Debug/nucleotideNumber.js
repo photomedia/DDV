@@ -216,7 +216,8 @@
          	$("#status").html("<img src='../../loading.gif' /> Loading sequence data: "+parseFloat(percentComplete).toFixed(2) + "% complete");
          	}
          else {
-         	$("#status").html("Sequence data loaded.");
+         	$("#status").html("Sequence data loaded.  Display of sequence fragments activated.");
+         	$("#status").append("<div id='gc-skew-plot-button'><a href='javascript:GenerateGCSkewChart()'>Display GC Skew Plot</a> available.</a>");
          	sequence_data_loaded=1;
          }
        }
@@ -274,3 +275,111 @@
             	document.write(outputTable25);
             	document.write(outputTable26);
             }
+            
+            function GenerateGCSkewChart() {
+
+            	$("#status").html("<img src='../../loading.gif' />Generating GC Skew Plot...");
+            	
+            	$.getScript("../../d3.v3.js", function(){
+    									
+            				$("#outfile").prepend("<svg id='gcSkewChart' width='800' height='330'></svg>");
+										
+										var gc_skew_window =  iNucleotidesPerColumn/10;
+										
+										var step_G=0;
+										var step_C=0;
+										var step_GC_skew=0;
+										
+										
+										var lineData = jQuery.map( theSequenceSplit, function( item, index ) {
+													step_G += (item.match(/G/g) || []).length;
+													step_C += (item.match(/C/g) || []).length;
+  											if ((index*iLineLength) % gc_skew_window == 0){
+  												if ((step_G + step_C)==0){step_GC_skew=0;}
+  												else {step_GC_skew = (step_G - step_C)/(step_G + step_C);}
+  												step_G=0;
+  												step_C=0;
+													return ({'x':(index*iLineLength),'y':step_GC_skew}); 
+												}
+												else {
+													return null;
+												}
+										});
+									
+									  var vis = d3.select("#gcSkewChart"),
+									    WIDTH = 800,
+									    HEIGHT = 300,
+									    MARGINS = {
+									      top: 20,
+									      right: 20,
+									      bottom: 20,
+									      left: 50
+									    },
+									    xRange = d3.scale.linear().range([MARGINS.left, WIDTH - MARGINS.right]).domain([d3.min(lineData, function (d) {
+									        return d.x;
+									      }),
+									      d3.max(lineData, function (d) {
+									        return d.x;
+									      })
+									    ]),
+									
+									    yRange = d3.scale.linear().range([HEIGHT - MARGINS.top, MARGINS.bottom]).domain([d3.min(lineData, function (d) {
+									        return d.y;
+									      }),
+									      d3.max(lineData, function (d) {
+									        return d.y;
+									      })
+									    ]),
+									
+									    xAxis = d3.svg.axis()
+									      .scale(xRange)
+									      .tickSize(5)
+									      .tickSubdivide(true),
+									
+									    yAxis = d3.svg.axis()
+									      .scale(yRange)
+									      .tickSize(5)
+									      .orient("left")
+									      .tickSubdivide(true);
+									
+									
+									  vis.append("svg:g")
+									    .attr("class", "x axis")
+									    .attr("transform", "translate(0," + (HEIGHT - MARGINS.bottom) + ")")
+									    .call(xAxis)
+									    .append("text")
+      								.attr("x", 116)
+								      .attr("y", 40)
+								      .style("text-anchor", "start")
+								      .style("font-size","12px")
+								      .text("Position in sequence ");
+									
+									  vis.append("svg:g")
+									    .attr("class", "y axis")
+									    .attr("transform", "translate(" + (MARGINS.left) + ",0)")
+									    .call(yAxis)
+									    .append("text")
+								      .attr("transform", "rotate(-90)")
+								      .attr("y", 10)
+								      .style("text-anchor", "end")
+								      .style("font-size","12px")
+								      .text("GC-Skew ");
+									
+									  var lineFunc = d3.svg.line()
+									  .x(function (d) {
+									    return xRange(d.x);
+									  })
+									  .y(function (d) {
+									    return yRange(d.y);
+									  })
+									  .interpolate('linear');
+									
+									vis.append("svg:path")
+									  .attr("d", lineFunc(lineData))
+									  .attr("stroke", "blue")
+									  .attr("stroke-width", 2)
+									  .attr("fill", "none");
+									  
+									  $("#status").html("GC Skew Plot added to results.");
+							});
+					}

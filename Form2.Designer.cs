@@ -46,6 +46,8 @@
             this.label11 = new System.Windows.Forms.Label();
             this.linkLabel7 = new System.Windows.Forms.LinkLabel();
             this.label1 = new System.Windows.Forms.Label();
+            this.linkLabel8 = new System.Windows.Forms.LinkLabel();
+            this.label8 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1DDVversion
@@ -95,21 +97,21 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 93);
+            this.label6.Location = new System.Drawing.Point(12, 84);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(397, 13);
             this.label6.TabIndex = 5;
             this.label6.Text = "The following software is included in the distribution under its own respective t" +
-    "erms:";
+                "erms:";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(3, 58);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(297, 13);
+            this.label7.Size = new System.Drawing.Size(73, 13);
             this.label7.TabIndex = 6;
-            this.label7.Text = "DDV License (http://photomedia.ca/gene/DDV/license.html)";
+            this.label7.Text = "DDV License:";
             // 
             // linkLabel1
             // 
@@ -167,12 +169,12 @@
             // linkLabel5
             // 
             this.linkLabel5.AutoSize = true;
-            this.linkLabel5.Location = new System.Drawing.Point(3, 71);
+            this.linkLabel5.Location = new System.Drawing.Point(82, 58);
             this.linkLabel5.Name = "linkLabel5";
-            this.linkLabel5.Size = new System.Drawing.Size(91, 13);
+            this.linkLabel5.Size = new System.Drawing.Size(40, 13);
             this.linkLabel5.TabIndex = 13;
             this.linkLabel5.TabStop = true;
-            this.linkLabel5.Text = "license/disclaimer";
+            this.linkLabel5.Text = "license";
             this.linkLabel5.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel5_LinkClicked);
             // 
             // linkLabel6
@@ -224,11 +226,33 @@
             this.label1.TabIndex = 17;
             this.label1.Text = "- BioJS ";
             // 
+            // linkLabel8
+            // 
+            this.linkLabel8.AutoSize = true;
+            this.linkLabel8.Location = new System.Drawing.Point(56, 244);
+            this.linkLabel8.Name = "linkLabel8";
+            this.linkLabel8.Size = new System.Drawing.Size(44, 13);
+            this.linkLabel8.TabIndex = 20;
+            this.linkLabel8.TabStop = true;
+            this.linkLabel8.Text = "License";
+            this.linkLabel8.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel8_LinkClicked);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(16, 244);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(37, 13);
+            this.label8.TabIndex = 19;
+            this.label8.Text = "- D3.js";
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(507, 254);
+            this.ClientSize = new System.Drawing.Size(507, 270);
+            this.Controls.Add(this.linkLabel8);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.linkLabel7);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label11);
@@ -274,5 +298,7 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.LinkLabel linkLabel7;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.LinkLabel linkLabel8;
+        private System.Windows.Forms.Label label8;
     }
 }

@@ -169,6 +169,12 @@
     <Content Include="civetweb.exe">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="d3-license.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="d3.v3.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="DDV-license.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
