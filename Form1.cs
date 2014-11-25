@@ -67,6 +67,7 @@ namespace DDV
         public string EndOfSequence = "";
         public string refseq = "";
         public string gi = "";
+        public string DDVseqID = "";
         public string m_strFinalDestinationFolder = "";
 
         //BitmapData glbl_bmd;
@@ -298,8 +299,8 @@ namespace DDV
             // 
             // lblSourceBitmapFilename
             // 
-            this.lblSourceBitmapFilename.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblSourceBitmapFilename.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.lblSourceBitmapFilename.Location = new System.Drawing.Point(64, 132);
             this.lblSourceBitmapFilename.Name = "lblSourceBitmapFilename";
             this.lblSourceBitmapFilename.Size = new System.Drawing.Size(396, 24);
@@ -317,9 +318,9 @@ namespace DDV
             // 
             // groupBox2
             // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.AutoSize = true;
             this.groupBox2.Controls.Add(this.lblFASTAstats);
             this.groupBox2.Controls.Add(this.lblRefSeq);
@@ -335,9 +336,9 @@ namespace DDV
             // 
             // lblFASTAstats
             // 
-            this.lblFASTAstats.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblFASTAstats.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.lblFASTAstats.Location = new System.Drawing.Point(6, 142);
             this.lblFASTAstats.Name = "lblFASTAstats";
             this.lblFASTAstats.Size = new System.Drawing.Size(454, 272);
@@ -395,8 +396,8 @@ namespace DDV
             // 
             // resultLogTextBox
             // 
-            this.resultLogTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.resultLogTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)));
             this.resultLogTextBox.Location = new System.Drawing.Point(37, 328);
             this.resultLogTextBox.Name = "resultLogTextBox";
             this.resultLogTextBox.Size = new System.Drawing.Size(616, 287);
@@ -416,8 +417,8 @@ namespace DDV
             // 
             // groupBox3
             // 
-            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Controls.Add(this.lblSourceBitmapFilename);
             this.groupBox3.Controls.Add(this.lnkLatestInterface);
@@ -457,8 +458,8 @@ namespace DDV
             // 
             // lblOutputPath
             // 
-            this.lblOutputPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblOutputPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.lblOutputPath.Location = new System.Drawing.Point(97, 63);
             this.lblOutputPath.Name = "lblOutputPath";
             this.lblOutputPath.Size = new System.Drawing.Size(363, 58);
@@ -507,7 +508,7 @@ namespace DDV
             this.label9.Size = new System.Drawing.Size(600, 13);
             this.label9.TabIndex = 39;
             this.label9.Text = "After selecting sequence, Read Sequence Properties and Generate Image and Interfa" +
-    "ce, then Process Image with Deepzoom";
+                "ce, then Process Image with Deepzoom";
             // 
             // btnReadSequenceProperties
             // 
@@ -774,11 +775,29 @@ namespace DDV
                     MessageBox.Show("Please select source file.", "Incomplete", MessageBoxButtons.OK, MessageBoxIcon.Information); 
                     return; 
                 }
+                
+                //copy the file over to the output folder as "sequence.fasta"
+                string strDestination = @Directory.GetCurrentDirectory() + "\\output\\sequence.fasta";
+                //if file exists, delete it
+                if (File.Exists(strDestination))
+                {
+                    File.Delete(strDestination);
+                }
+                //if output Directory not there, make it
+                if (!(Directory.Exists(@Directory.GetCurrentDirectory() + "\\output")))
+                {
+                    Directory.CreateDirectory(@Directory.GetCurrentDirectory() + "\\output");
+                }
+                //copy the file
+                File.Copy(fDlgSourceSequence.FileName, strDestination);
+                MessageBoxClear();
+                MessageBoxShow("Copied selected sequence to output folder.");
+                fDlgSourceSequence.FileName = strDestination;
                 SetSourceSequence(fDlgSourceSequence.FileName);
                 txtGI.Text = "";
                 CleanInterfaceNewSequence();
                 BitmapClear();
-                MessageBoxClear();
+                
 			}
 
 			
@@ -1058,7 +1077,7 @@ namespace DDV
                 return (0); 
             }
           
-            StreamReader s = File.OpenText(m_strSourceFile);
+            StreamReader streamFASTAFile = File.OpenText(m_strSourceFile);
 
             int i = 0;
             bool end = false;
@@ -1066,13 +1085,11 @@ namespace DDV
             int DataLengthCounter = 0;
             int iActualLineLength = 0;
 
-            //int iCounter=0;
-
 
             string firstLetter = null;
 
 
-            while (((read = s.ReadLine()) != null) && !end)
+            while (((read = streamFASTAFile.ReadLine()) != null) && !end)
             {
                 if (read == "")
                 { //skip 
@@ -1103,7 +1120,11 @@ namespace DDV
                                MessageBoxShow("Refseq present in sequence data. ");
                             }
                             gi = Regex.Match(lblSequenceName.Text, @"gi\|(.*?)\|").Groups[1].Value;
-                            if (gi == "") { MessageBox.Show("Error: gi not found in sequence file"); }
+                            if (gi == "") {
+                                DDVseqID="DDV"+DateTime.Now.ToString("yyyyMMddHHmmss");
+                                MessageBoxShow("GI not found in sequence file.  Generated the following DDV ID for this sequence: "+DDVseqID);
+
+                            }
                         }
 
                     }
@@ -1145,11 +1166,11 @@ namespace DDV
             {
                 MessageBoxShow("Error: Line length in FASTA file does not equal to "+iLineLength.ToString());
                 MessageBoxShow("This software requires FASTA file to use line length " + iLineLength.ToString());
-                s.Close();
+                streamFASTAFile.Close();
                 return (0);
             }
             MessageBoxShow("Retrieved basic sequence properties from FASTA.");
-            s.Close();
+            streamFASTAFile.Close();
             return (DataLengthCounter);
 
         }
@@ -1209,7 +1230,6 @@ namespace DDV
             progressBar1.Refresh();
             int counter = 0;
             if (m_strSourceFile == "") { MessageBox.Show("Please select source file.", "Incomplete", MessageBoxButtons.OK, MessageBoxIcon.Information); return; }
-            StreamReader s = File.OpenText(m_strSourceFile);
             FileInfo TheFile = new FileInfo(m_strSourceFile);
 
             int total = populateInfo();
@@ -1280,7 +1300,7 @@ namespace DDV
             long size = fileSize.Length;
             progressBar1.Minimum = 0;
             progressBar1.Maximum = (int)size;
-
+            
             BackgroundWorker workerBMPPainter = new BackgroundWorker();
             workerBMPPainter.WorkerReportsProgress = true;
             workerBMPPainter.WorkerSupportsCancellation = true;
@@ -1306,12 +1326,12 @@ namespace DDV
                 int y_pointer = 0;
                 int progress = 0;
 
-                StreamReader s3 = File.OpenText(m_strSourceFile);
+                StreamReader streamFASTAFile = File.OpenText(m_strSourceFile);
 
                 progress = progress + 1;
                 worker.ReportProgress(progress);
 
-                while (((read = s3.ReadLine()) != null) && !end)
+                while (((read = streamFASTAFile.ReadLine()) != null) && !end)
                 {
                     if (read == "")
                     { //skip 
@@ -1381,7 +1401,8 @@ namespace DDV
                     }
                 }
 
-                s3.Close();
+                //close the sequence file
+                streamFASTAFile.Close();
                
                 //----------------------------end of convert data to pixels--------------------------
             };
@@ -1392,7 +1413,16 @@ namespace DDV
 
                 b.UnlockBits(bmd);
                 bmd = null;
-                string strResultFileName = gi + ".png";
+                string strResultFileName = "";
+                if (gi != "")
+                {
+                    strResultFileName = gi + ".png";
+                }
+                else
+                {
+                    strResultFileName = DDVseqID + ".png";
+                }
+
                 //if file exists, delete
                 if (File.Exists(strResultFileName))
                 {
@@ -1405,7 +1435,7 @@ namespace DDV
                 }
                 catch
                 {
-                    throw new System.Exception("Error.  Could not save BMP file.  ");
+                    throw new System.Exception("Error.  Could not save PNG file.  ");
                 }
                 b.Dispose();
                 MessageBoxShow("File saved " + strResultFileName);
@@ -1537,6 +1567,11 @@ namespace DDV
                     embedHTML = embedHTML + @"
 NCBI (gi): <a href='http://www.ncbi.nlm.nih.gov/nuccore/" + gi + @"'>http://www.ncbi.nlm.nih.gov/nuccore/" + gi + @"</a><br />";
                 }
+                else
+                    {
+                        embedHTML = embedHTML + @"
+Custom/local sequence (DDV seq ID): "+DDVseqID+"<br />";
+                    } 
 
                 embedHTML = embedHTML + @"
 
@@ -1572,7 +1607,6 @@ This DNA data visualization interface was generated with <a href='https://bitbuc
 
                 
             };
-
            
         }
 
@@ -1867,9 +1901,11 @@ This DNA data visualization interface was generated with <a href='https://bitbuc
                 progressBar1.Update();
                 progressBar1.Refresh();
 
+
                 //moving generated folders 
                 strSource = @Directory.GetCurrentDirectory() + "\\output\\" + fNameNoExtension;
-                strDestination = finalDestinationPath + "dnadata\\nuccore" + gi;
+                if (gi != "") { strDestination = finalDestinationPath + "dnadata\\nuccore" + gi; }
+                else { strDestination = finalDestinationPath + "dnadata\\" + DDVseqID; }
                 MessageBoxShow("Moving Results" + strSource + " to " + strDestination);
                 MoveDirectory(strSource, strDestination);
 
@@ -1879,7 +1915,8 @@ This DNA data visualization interface was generated with <a href='https://bitbuc
 
                 //moving [img] folder into place
                 strSource = @Directory.GetCurrentDirectory() + "\\img";
-                strDestination = finalDestinationPath + "dnadata\\nuccore" + gi + "\\img";
+                if (gi != "") { strDestination = finalDestinationPath + "dnadata\\nuccore" + gi + "\\img"; }
+                else { strDestination = finalDestinationPath + "dnadata\\" + DDVseqID + "\\img"; }
                 MessageBoxShow("Copying images" + strSource + " to " + strDestination);
                 if (!(Directory.Exists(strDestination)))
                 {
@@ -1938,7 +1975,8 @@ This DNA data visualization interface was generated with <a href='https://bitbuc
 
                 // To move donwloaded sequence file to final folder
                 strSource = fPathName + "\\sequence.fasta";
-                strDestination = finalDestinationPath + "dnadata\\nuccore" + gi + "\\sequence.fasta";
+                if (gi != "") { strDestination = finalDestinationPath + "dnadata\\nuccore" + gi + "\\sequence.fasta"; }
+                else { strDestination = finalDestinationPath + "dnadata\\" + DDVseqID + "\\sequence.fasta"; }
                 MessageBoxShow("Copying " + strSource + " to " + strDestination);
                 File.Copy(strSource, strDestination, true);
                 //File.Delete(strSource);
@@ -2158,7 +2196,16 @@ This DNA data visualization interface was generated with <a href='https://bitbuc
                 
 
                 //Go to current result
-                string strResultURL = "http://localhost:1818/dnadata/nuccore" + fNameNoExtension + "/index.html";
+                string strResultURL = "";
+                if (gi != "")
+                {
+                    strResultURL = "http://localhost:1818/dnadata/nuccore" + fNameNoExtension + "/index.html";
+                }
+                else
+                {
+                    strResultURL = "http://localhost:1818/dnadata/" + fNameNoExtension + "/index.html";
+     
+                }
                 MessageBoxShow("Opening Result "+strResultURL);
                 lnkLatestInterface.Text = strResultURL;
                 lnkLatestInterface.Enabled = true;

@@ -200,3 +200,4 @@ C:\DATA\bitbucket\ddv\obj\Debug\DDV.exe
 C:\DATA\bitbucket\ddv\obj\Debug\DDV.pdb
 C:\DATA\bitbucket\ddv\bin\Debug\d3.v3.js
 C:\DATA\bitbucket\ddv\bin\Debug\d3-license.txt
+C:\DATA\bitbucket\ddv\obj\Debug\DDV.csprojResolveAssemblyReference.cache
