@@ -51,7 +51,7 @@ namespace DDV
 		private System.Windows.Forms.OpenFileDialog fDlgSourceSequence;
 		private Random RandomClass = new Random();
 		private System.Windows.Forms.Label lblSourceSequence;
-		private System.Windows.Forms.Button button2;
+		private System.Windows.Forms.Button btnBrowseSelectFASTA;
 		private System.Windows.Forms.GroupBox groupBox1;
 		private System.Windows.Forms.GroupBox groupBox2;
 		private System.Windows.Forms.Label lblDataLength;
@@ -75,7 +75,7 @@ namespace DDV
         private RichTextBox resultLogTextBox;
         private Label label5;
         private TextBox txtGI;
-        private Button button13;
+        private Button btnDownloadFASTA;
         private Label lblRefSeq;
         private Label label6;
         private Label label8;
@@ -94,7 +94,7 @@ namespace DDV
         private Label label4;
         private TextBox textBoxTileSize;
         private TextBox txtBoxY;
-        private Button buttonProcessBitmapDeepZoom;
+        private Button btnProcessBitmapDeepZoom;
         private Label label1;
         private Button btnGenerateImage;
         private TabControl tabControl1;
@@ -118,7 +118,7 @@ namespace DDV
 			m_strSourceFile="";
             m_strSourceBitmapFile = "";
 
-            buttonProcessBitmapDeepZoom.Enabled = false;
+            btnProcessBitmapDeepZoom.Enabled = false;
             checkEnvironment();
             launchCivetweb();
             SetFinalDestinationFolder(@Directory.GetCurrentDirectory() + "\\output\\");
@@ -163,10 +163,10 @@ namespace DDV
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.fDlgSourceSequence = new System.Windows.Forms.OpenFileDialog();
             this.lblSourceSequence = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnBrowseSelectFASTA = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.button13 = new System.Windows.Forms.Button();
+            this.btnDownloadFASTA = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.txtGI = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -197,7 +197,7 @@ namespace DDV
             this.label4 = new System.Windows.Forms.Label();
             this.textBoxTileSize = new System.Windows.Forms.TextBox();
             this.txtBoxY = new System.Windows.Forms.TextBox();
-            this.buttonProcessBitmapDeepZoom = new System.Windows.Forms.Button();
+            this.btnProcessBitmapDeepZoom = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btnGenerateImage = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -221,27 +221,27 @@ namespace DDV
             this.lblSourceSequence.TabIndex = 6;
             this.lblSourceSequence.Text = "Source sequence filename";
             // 
-            // button2
+            // btnBrowseSelectFASTA
             // 
-            this.button2.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.button2.Location = new System.Drawing.Point(4, 82);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(157, 24);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Browse/Select FASTA file ->";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            this.btnBrowseSelectFASTA.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnBrowseSelectFASTA.Location = new System.Drawing.Point(4, 82);
+            this.btnBrowseSelectFASTA.Name = "btnBrowseSelectFASTA";
+            this.btnBrowseSelectFASTA.Size = new System.Drawing.Size(157, 24);
+            this.btnBrowseSelectFASTA.TabIndex = 5;
+            this.btnBrowseSelectFASTA.Text = "Browse/Select FASTA file ->";
+            this.btnBrowseSelectFASTA.UseVisualStyleBackColor = false;
+            this.btnBrowseSelectFASTA.Click += new System.EventHandler(this.button2_Click_1);
             // 
             // groupBox1
             // 
             this.groupBox1.AutoSize = true;
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.button13);
+            this.groupBox1.Controls.Add(this.btnDownloadFASTA);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.txtGI);
             this.groupBox1.Controls.Add(this.lblSourceSequence);
-            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.btnBrowseSelectFASTA);
             this.groupBox1.Location = new System.Drawing.Point(4, 27);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(655, 130);
@@ -259,16 +259,16 @@ namespace DDV
             this.label7.TabIndex = 38;
             this.label7.Text = "Enter GI and download FASTA file from NIH or browse for local source FASTA file";
             // 
-            // button13
+            // btnDownloadFASTA
             // 
-            this.button13.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.button13.Location = new System.Drawing.Point(264, 43);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(194, 23);
-            this.button13.TabIndex = 37;
-            this.button13.Text = "Download FASTA file from NIH";
-            this.button13.UseVisualStyleBackColor = false;
-            this.button13.Click += new System.EventHandler(this.button13_Click);
+            this.btnDownloadFASTA.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnDownloadFASTA.Location = new System.Drawing.Point(264, 43);
+            this.btnDownloadFASTA.Name = "btnDownloadFASTA";
+            this.btnDownloadFASTA.Size = new System.Drawing.Size(194, 23);
+            this.btnDownloadFASTA.TabIndex = 37;
+            this.btnDownloadFASTA.Text = "Download FASTA file from NIH";
+            this.btnDownloadFASTA.UseVisualStyleBackColor = false;
+            this.btnDownloadFASTA.Click += new System.EventHandler(this.button13_Click);
             // 
             // label5
             // 
@@ -299,8 +299,8 @@ namespace DDV
             // 
             // lblSourceBitmapFilename
             // 
-            this.lblSourceBitmapFilename.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblSourceBitmapFilename.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblSourceBitmapFilename.Location = new System.Drawing.Point(64, 132);
             this.lblSourceBitmapFilename.Name = "lblSourceBitmapFilename";
             this.lblSourceBitmapFilename.Size = new System.Drawing.Size(396, 24);
@@ -318,9 +318,9 @@ namespace DDV
             // 
             // groupBox2
             // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.AutoSize = true;
             this.groupBox2.Controls.Add(this.lblFASTAstats);
             this.groupBox2.Controls.Add(this.lblRefSeq);
@@ -336,9 +336,9 @@ namespace DDV
             // 
             // lblFASTAstats
             // 
-            this.lblFASTAstats.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblFASTAstats.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblFASTAstats.Location = new System.Drawing.Point(6, 142);
             this.lblFASTAstats.Name = "lblFASTAstats";
             this.lblFASTAstats.Size = new System.Drawing.Size(454, 272);
@@ -396,8 +396,8 @@ namespace DDV
             // 
             // resultLogTextBox
             // 
-            this.resultLogTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
+            this.resultLogTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.resultLogTextBox.Location = new System.Drawing.Point(37, 328);
             this.resultLogTextBox.Name = "resultLogTextBox";
             this.resultLogTextBox.Size = new System.Drawing.Size(616, 287);
@@ -417,8 +417,8 @@ namespace DDV
             // 
             // groupBox3
             // 
-            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Controls.Add(this.lblSourceBitmapFilename);
             this.groupBox3.Controls.Add(this.lnkLatestInterface);
@@ -458,8 +458,8 @@ namespace DDV
             // 
             // lblOutputPath
             // 
-            this.lblOutputPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblOutputPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblOutputPath.Location = new System.Drawing.Point(97, 63);
             this.lblOutputPath.Name = "lblOutputPath";
             this.lblOutputPath.Size = new System.Drawing.Size(363, 58);
@@ -477,7 +477,7 @@ namespace DDV
             this.tabPage1.Controls.Add(this.label4);
             this.tabPage1.Controls.Add(this.textBoxTileSize);
             this.tabPage1.Controls.Add(this.txtBoxY);
-            this.tabPage1.Controls.Add(this.buttonProcessBitmapDeepZoom);
+            this.tabPage1.Controls.Add(this.btnProcessBitmapDeepZoom);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.btnGenerateImage);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
@@ -508,7 +508,7 @@ namespace DDV
             this.label9.Size = new System.Drawing.Size(600, 13);
             this.label9.TabIndex = 39;
             this.label9.Text = "After selecting sequence, Read Sequence Properties and Generate Image and Interfa" +
-                "ce, then Process Image with Deepzoom";
+    "ce, then Process Image with Deepzoom";
             // 
             // btnReadSequenceProperties
             // 
@@ -566,16 +566,16 @@ namespace DDV
             this.txtBoxY.TabIndex = 30;
             this.txtBoxY.Text = "3000";
             // 
-            // buttonProcessBitmapDeepZoom
+            // btnProcessBitmapDeepZoom
             // 
-            this.buttonProcessBitmapDeepZoom.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.buttonProcessBitmapDeepZoom.Location = new System.Drawing.Point(314, 33);
-            this.buttonProcessBitmapDeepZoom.Name = "buttonProcessBitmapDeepZoom";
-            this.buttonProcessBitmapDeepZoom.Size = new System.Drawing.Size(97, 44);
-            this.buttonProcessBitmapDeepZoom.TabIndex = 30;
-            this.buttonProcessBitmapDeepZoom.Text = "Process Image with Deepzoom";
-            this.buttonProcessBitmapDeepZoom.UseVisualStyleBackColor = false;
-            this.buttonProcessBitmapDeepZoom.Click += new System.EventHandler(this.button12_Click);
+            this.btnProcessBitmapDeepZoom.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnProcessBitmapDeepZoom.Location = new System.Drawing.Point(314, 33);
+            this.btnProcessBitmapDeepZoom.Name = "btnProcessBitmapDeepZoom";
+            this.btnProcessBitmapDeepZoom.Size = new System.Drawing.Size(97, 44);
+            this.btnProcessBitmapDeepZoom.TabIndex = 30;
+            this.btnProcessBitmapDeepZoom.Text = "Process Image with Deepzoom";
+            this.btnProcessBitmapDeepZoom.UseVisualStyleBackColor = false;
+            this.btnProcessBitmapDeepZoom.Click += new System.EventHandler(this.button12_Click);
             // 
             // label1
             // 
@@ -778,20 +778,24 @@ namespace DDV
                 
                 //copy the file over to the output folder as "sequence.fasta"
                 string strDestination = @Directory.GetCurrentDirectory() + "\\output\\sequence.fasta";
-                //if file exists, delete it
-                if (File.Exists(strDestination))
+                //check if file already in correct place, if not, move it into output folder
+                if (!(fDlgSourceSequence.FileName == strDestination))
                 {
-                    File.Delete(strDestination);
+                    //if file exists, delete it
+                    if (File.Exists(strDestination))
+                    {
+                        File.Delete(strDestination);
+                    }
+                    //if output Directory not there, make it
+                    if (!(Directory.Exists(@Directory.GetCurrentDirectory() + "\\output")))
+                    {
+                        Directory.CreateDirectory(@Directory.GetCurrentDirectory() + "\\output");
+                    }
+                    //copy the file
+                    File.Copy(fDlgSourceSequence.FileName, strDestination);
+                    MessageBoxClear();
+                    MessageBoxShow("Copied selected sequence to output folder.");
                 }
-                //if output Directory not there, make it
-                if (!(Directory.Exists(@Directory.GetCurrentDirectory() + "\\output")))
-                {
-                    Directory.CreateDirectory(@Directory.GetCurrentDirectory() + "\\output");
-                }
-                //copy the file
-                File.Copy(fDlgSourceSequence.FileName, strDestination);
-                MessageBoxClear();
-                MessageBoxShow("Copied selected sequence to output folder.");
                 fDlgSourceSequence.FileName = strDestination;
                 SetSourceSequence(fDlgSourceSequence.FileName);
                 txtGI.Text = "";
@@ -1076,6 +1080,13 @@ namespace DDV
                 MessageBox.Show("Please select source file.", "Incomplete", MessageBoxButtons.OK, MessageBoxIcon.Information); 
                 return (0); 
             }
+
+            //check if FASTA file exists
+            if (!File.Exists(m_strSourceFile))
+            {
+                MessageBox.Show("Could not locate FASTA file to process, please specify source file.", "Incomplete", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return (0); 
+            }
           
             StreamReader streamFASTAFile = File.OpenText(m_strSourceFile);
 
@@ -1230,6 +1241,7 @@ namespace DDV
             progressBar1.Refresh();
             int counter = 0;
             if (m_strSourceFile == "") { MessageBox.Show("Please select source file.", "Incomplete", MessageBoxButtons.OK, MessageBoxIcon.Information); return; }
+            if (!File.Exists(m_strSourceFile)) { MessageBox.Show("Could not find source FASTA file"+m_strSourceFile+". Please select source file", "Incomplete", MessageBoxButtons.OK, MessageBoxIcon.Information); return; }
             FileInfo TheFile = new FileInfo(m_strSourceFile);
 
             int total = populateInfo();
@@ -1554,6 +1566,7 @@ namespace DDV
 <script type='text/javascript'>
 	        outputTable();";
                 if (chckIncludeDensity.Checked == true) { embedHTML = embedHTML + @"outputDensityUI();"; }
+                else { embedHTML = embedHTML + @"outputStatusResultUI();"; }
                 embedHTML = embedHTML + @"</script>
 
 <div class='legend-details'>
@@ -1603,7 +1616,7 @@ This DNA data visualization interface was generated with <a href='https://bitbuc
                 MessageBoxShow("Completed.");
                 MessageBoxShow("Image and interface files generated. Click on Process Image with Deepzoom for the final step.");
                 //enable deepzoomprocessing
-                buttonProcessBitmapDeepZoom.Enabled = true;
+                btnProcessBitmapDeepZoom.Enabled = true;
 
                 
             };
@@ -1765,6 +1778,7 @@ This DNA data visualization interface was generated with <a href='https://bitbuc
             }
             MessageBoxShow("Moving "+fName+" from "+fPathName+" to "+destinationFile);
             // To move source image to source folder:
+            if (!File.Exists(m_strSourceBitmapFile)) { MessageBox.Show("Error: could not locate source image file.", "Incomplete", MessageBoxButtons.OK, MessageBoxIcon.Information);return; }
             MoveWithReplace(m_strSourceBitmapFile, destinationFile);
             
             //default tile size is 256, but check interface for user entered value
@@ -1975,12 +1989,24 @@ This DNA data visualization interface was generated with <a href='https://bitbuc
 
                 // To move donwloaded sequence file to final folder
                 strSource = fPathName + "\\sequence.fasta";
-                if (gi != "") { strDestination = finalDestinationPath + "dnadata\\nuccore" + gi + "\\sequence.fasta"; }
-                else { strDestination = finalDestinationPath + "dnadata\\" + DDVseqID + "\\sequence.fasta"; }
-                MessageBoxShow("Copying " + strSource + " to " + strDestination);
-                File.Copy(strSource, strDestination, true);
-                //File.Delete(strSource);
-                //leave a copy there in case user wants to regenerate interface
+                if (File.Exists(strSource))
+                {
+                    if (gi != "") { strDestination = finalDestinationPath + "dnadata\\nuccore" + gi + "\\sequence.fasta"; }
+                    else { strDestination = finalDestinationPath + "dnadata\\" + DDVseqID + "\\sequence.fasta"; }
+                    MessageBoxShow("Copying " + strSource + " to " + strDestination);
+                    File.Copy(strSource, strDestination, true);
+                }
+
+                // To move donwloaded sequence-info.xml to final folder
+                strSource = fPathName + "\\sequence-info.xml";
+                if (File.Exists(strSource))
+                {
+                    if (gi != "") { strDestination = finalDestinationPath + "dnadata\\nuccore" + gi + "\\sequence-info.xml"; }
+                    else { strDestination = finalDestinationPath + "dnadata\\" + DDVseqID + "\\sequence-info.xml"; }
+                    MessageBoxShow("Moving " + strSource + " to " + strDestination);
+                    File.Copy(strSource, strDestination, true);
+                    File.Delete(strSource);
+                }
 
                 //copy shared files into output folder
                 strSource = @Directory.GetCurrentDirectory() + "\\seadragon.css"; ;
@@ -2321,10 +2347,9 @@ This DNA data visualization interface was generated with <a href='https://bitbuc
 	            client.DownloadFileCompleted += new AsyncCompletedEventHandler(client_DownloadFileCompleted);
                 // Starts the download
                 client.DownloadFileAsync(new Uri(strDownload), strDestination);	 
-                // to do disable UI
-                button13.Enabled = false;
-                btnGenerateImage.Enabled = false;
-                btnReadSequenceProperties.Enabled = false;
+                // Reset UI
+                btnDownloadFASTA.Enabled = false;
+                DisableGenerateUI();
             }
             catch (Exception ex)
             {
@@ -2341,6 +2366,14 @@ This DNA data visualization interface was generated with <a href='https://bitbuc
             
             
         }
+
+        void DisableGenerateUI()
+        {
+                btnProcessBitmapDeepZoom.Enabled = false;
+                btnGenerateImage.Enabled = false;
+                btnReadSequenceProperties.Enabled = false;
+        }
+
         void client_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
         {
             if ((int)e.BytesReceived < progressBar1.Maximum)
@@ -2353,7 +2386,7 @@ This DNA data visualization interface was generated with <a href='https://bitbuc
         void client_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
         {
             MessageBoxShow("Download Completed.");
-            button13.Enabled = true;
+            btnDownloadFASTA.Enabled = true;
             // Set cursor as default arrow
             Cursor.Current = Cursors.Default;
             //Clear variables
@@ -2383,14 +2416,14 @@ This DNA data visualization interface was generated with <a href='https://bitbuc
             m_strSourceBitmapFile = "";
             lblSourceBitmapFilename.Text = "";    
             //CLEAR functions associated with bitmap
-            buttonProcessBitmapDeepZoom.Enabled = false;
+            btnProcessBitmapDeepZoom.Enabled = false;
         }
 
         private void BitmapSet(string destinationFile)
         {
             m_strSourceBitmapFile = destinationFile;
             lblSourceBitmapFilename.Text = destinationFile;
-            MessageBoxShow("Image file set to -> " + destinationFile + "for processing.");
+            MessageBoxShow("Image file set to -> " + destinationFile + " for processing.");
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -2629,7 +2662,7 @@ This DNA data visualization interface was generated with <a href='https://bitbuc
             {
                 if (dlgImageFileSet.FileName != ""){
                     BitmapSet(dlgImageFileSet.FileName);
-                    buttonProcessBitmapDeepZoom.Enabled=true;
+                    btnProcessBitmapDeepZoom.Enabled=true;
                 }
             }
         }

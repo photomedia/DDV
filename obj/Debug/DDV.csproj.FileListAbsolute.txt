@@ -134,6 +134,8 @@ C:\DATA\bitbucket\ddv\bin\Debug\civetweb.conf
 C:\DATA\bitbucket\ddv\bin\Debug\App.ico
 C:\DATA\bitbucket\ddv\bin\Debug\Biojs.js
 C:\DATA\bitbucket\ddv\bin\Debug\Biojs.Sequence.js
+C:\DATA\bitbucket\ddv\bin\Debug\d3-license.txt
+C:\DATA\bitbucket\ddv\bin\Debug\d3.v3.js
 C:\DATA\bitbucket\ddv\bin\Debug\DDV-license.txt
 C:\DATA\bitbucket\ddv\bin\Debug\DeepZoomToolsDLL-license.txt
 C:\DATA\bitbucket\ddv\bin\Debug\ext\php_curl.dll
@@ -198,6 +200,3 @@ C:\DATA\bitbucket\ddv\obj\Debug\DDV.exe.manifest
 C:\DATA\bitbucket\ddv\obj\Debug\DDV.application
 C:\DATA\bitbucket\ddv\obj\Debug\DDV.exe
 C:\DATA\bitbucket\ddv\obj\Debug\DDV.pdb
-C:\DATA\bitbucket\ddv\bin\Debug\d3.v3.js
-C:\DATA\bitbucket\ddv\bin\Debug\d3-license.txt
-C:\DATA\bitbucket\ddv\obj\Debug\DDV.csprojResolveAssemblyReference.cache

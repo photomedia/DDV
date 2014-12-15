@@ -15,14 +15,19 @@ function outputDensityUI(){
     end: <input id="send" type="text" /> press right-arrow on keyboard to set<br /> \
 	length: <span id="sequenceLength"></span> nucleotides\
 	</div> \
-	    <div id="status"></div> \
+	';
+	document.write(output);
+	outputStatusResultUI();
+}
+
+function outputStatusResultUI(){
+ output='<div id="status"></div> \
     <div id="result"> \
     </div> <br clear="left"> \
     <span style="margin-left:10px;background-color:#f0f0f0;">Result Log:</span> \
     <div id="outfile"></div> \
   	</div> \
 	';
-	
 	document.write(output);
 }
 
