@@ -60,7 +60,6 @@ namespace DDV
         private System.Windows.Forms.Label lblSequenceName;
         private SaveFileDialog saveDialog;
         public ProgressBar progressBar1;
-        private Label lblFASTAstats;
         private Label lblProgressText;
         private Label lblDNAViewer;
 		public string read;
@@ -105,6 +104,7 @@ namespace DDV
         private Label label9;
         private CheckBox chckIncludeDensity;
         private OpenFileDialog dlgImageFileSet;
+        private RichTextBox txtBoxFASTAStats;
 
 
         protected const string _newline = "\r\n";
@@ -173,7 +173,6 @@ namespace DDV
             this.lblSourceBitmapFilename = new System.Windows.Forms.Label();
             this.lblDataLength = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.lblFASTAstats = new System.Windows.Forms.Label();
             this.lblRefSeq = new System.Windows.Forms.Label();
             this.lblSequenceName = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -205,6 +204,7 @@ namespace DDV
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.dlgImageFileSet = new System.Windows.Forms.OpenFileDialog();
+            this.txtBoxFASTAStats = new System.Windows.Forms.RichTextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -322,28 +322,17 @@ namespace DDV
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.AutoSize = true;
-            this.groupBox2.Controls.Add(this.lblFASTAstats);
+            this.groupBox2.Controls.Add(this.txtBoxFASTAStats);
             this.groupBox2.Controls.Add(this.lblRefSeq);
             this.groupBox2.Controls.Add(this.lblSequenceName);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.lblDataLength);
             this.groupBox2.Location = new System.Drawing.Point(663, 185);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(481, 430);
+            this.groupBox2.Size = new System.Drawing.Size(481, 5040);
             this.groupBox2.TabIndex = 16;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Sequence Properties";
-            // 
-            // lblFASTAstats
-            // 
-            this.lblFASTAstats.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblFASTAstats.Location = new System.Drawing.Point(6, 142);
-            this.lblFASTAstats.Name = "lblFASTAstats";
-            this.lblFASTAstats.Size = new System.Drawing.Size(454, 272);
-            this.lblFASTAstats.TabIndex = 17;
-            this.lblFASTAstats.Text = "FASTA Stats:";
             // 
             // lblRefSeq
             // 
@@ -625,6 +614,19 @@ namespace DDV
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            // 
+            // txtBoxFASTAStats
+            // 
+            this.txtBoxFASTAStats.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtBoxFASTAStats.BackColor = System.Drawing.SystemColors.Control;
+            this.txtBoxFASTAStats.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtBoxFASTAStats.Location = new System.Drawing.Point(11, 143);
+            this.txtBoxFASTAStats.Name = "txtBoxFASTAStats";
+            this.txtBoxFASTAStats.Size = new System.Drawing.Size(459, 287);
+            this.txtBoxFASTAStats.TabIndex = 35;
+            this.txtBoxFASTAStats.Text = "";
             // 
             // Form1
             // 
@@ -1481,7 +1483,7 @@ namespace DDV
                 "\nUnknown:" + iUnknown + " processed: " + ipUnknown +
                 "\niTotal:" + iTotal + " ipTotal: " + ipTotal +
                 "\n---------------------------------------\n";
-                lblFASTAstats.Text = strFastaStats;
+                txtBoxFASTAStats.Text = strFastaStats;
                 strFastaStats += resultLogTextBox.Text;
                
 
@@ -2406,7 +2408,7 @@ This DNA data visualization interface was generated with <a href='https://bitbuc
         {
             lblDataLength.Text = "";
             lblSequenceName.Text = "";
-            lblFASTAstats.Text = "";
+            txtBoxFASTAStats.Text = "";
             lblRefSeq.Text = "";
             progressBar1.Value = 0;
         }
