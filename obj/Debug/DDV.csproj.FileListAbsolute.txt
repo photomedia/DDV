@@ -200,4 +200,3 @@ C:\DATA\bitbucket\ddv\obj\Debug\DDV.exe.manifest
 C:\DATA\bitbucket\ddv\obj\Debug\DDV.application
 C:\DATA\bitbucket\ddv\obj\Debug\DDV.exe
 C:\DATA\bitbucket\ddv\obj\Debug\DDV.pdb
-C:\DATA\bitbucket\ddv\obj\Debug\DDV.csprojResolveAssemblyReference.cache

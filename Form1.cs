@@ -173,6 +173,7 @@ namespace DDV
             this.lblSourceBitmapFilename = new System.Windows.Forms.Label();
             this.lblDataLength = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtBoxFASTAStats = new System.Windows.Forms.RichTextBox();
             this.lblRefSeq = new System.Windows.Forms.Label();
             this.lblSequenceName = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -204,7 +205,6 @@ namespace DDV
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.dlgImageFileSet = new System.Windows.Forms.OpenFileDialog();
-            this.txtBoxFASTAStats = new System.Windows.Forms.RichTextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -310,9 +310,11 @@ namespace DDV
             // 
             // lblDataLength
             // 
-            this.lblDataLength.Location = new System.Drawing.Point(8, 41);
+            this.lblDataLength.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblDataLength.Location = new System.Drawing.Point(6, 59);
             this.lblDataLength.Name = "lblDataLength";
-            this.lblDataLength.Size = new System.Drawing.Size(301, 35);
+            this.lblDataLength.Size = new System.Drawing.Size(464, 35);
             this.lblDataLength.TabIndex = 15;
             this.lblDataLength.Text = "Number of base pairs/data length";
             // 
@@ -334,18 +336,35 @@ namespace DDV
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Sequence Properties";
             // 
+            // txtBoxFASTAStats
+            // 
+            this.txtBoxFASTAStats.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtBoxFASTAStats.BackColor = System.Drawing.SystemColors.Control;
+            this.txtBoxFASTAStats.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtBoxFASTAStats.Location = new System.Drawing.Point(11, 153);
+            this.txtBoxFASTAStats.Name = "txtBoxFASTAStats";
+            this.txtBoxFASTAStats.Size = new System.Drawing.Size(459, 277);
+            this.txtBoxFASTAStats.TabIndex = 35;
+            this.txtBoxFASTAStats.Text = "";
+            // 
             // lblRefSeq
             // 
+            this.lblRefSeq.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblRefSeq.Location = new System.Drawing.Point(125, 12);
             this.lblRefSeq.Name = "lblRefSeq";
-            this.lblRefSeq.Size = new System.Drawing.Size(100, 20);
+            this.lblRefSeq.Size = new System.Drawing.Size(345, 37);
             this.lblRefSeq.TabIndex = 36;
             // 
             // lblSequenceName
             // 
-            this.lblSequenceName.Location = new System.Drawing.Point(8, 78);
+            this.lblSequenceName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblSequenceName.Location = new System.Drawing.Point(8, 94);
             this.lblSequenceName.Name = "lblSequenceName";
-            this.lblSequenceName.Size = new System.Drawing.Size(197, 48);
+            this.lblSequenceName.Size = new System.Drawing.Size(462, 48);
             this.lblSequenceName.TabIndex = 16;
             this.lblSequenceName.Text = "Name of sequence";
             // 
@@ -614,19 +633,6 @@ namespace DDV
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
-            // 
-            // txtBoxFASTAStats
-            // 
-            this.txtBoxFASTAStats.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBoxFASTAStats.BackColor = System.Drawing.SystemColors.Control;
-            this.txtBoxFASTAStats.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtBoxFASTAStats.Location = new System.Drawing.Point(11, 143);
-            this.txtBoxFASTAStats.Name = "txtBoxFASTAStats";
-            this.txtBoxFASTAStats.Size = new System.Drawing.Size(459, 287);
-            this.txtBoxFASTAStats.TabIndex = 35;
-            this.txtBoxFASTAStats.Text = "";
             // 
             // Form1
             // 

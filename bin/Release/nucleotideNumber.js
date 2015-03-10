@@ -49,7 +49,7 @@
             		//copy content of pointed at sequence fragment to result log
             		  $('body').keyup(function (event) {
 						    	if (theSequence){
-								    if (event.keyCode == 83) {
+								    if (event.keyCode == 68) {
 								      $("#outfile").prepend("<div class='sequenceFragment'><div style='background-color:#f0f0f0;'>"+fragmentid+"</div>"+theSequence+"</div>");
 								    }
 								  }
@@ -260,7 +260,7 @@
             addLoadEvent(getSequence);
             
             function outputTable (){      
-            	outputTable1 = '<table id="output" style="border: 1px solid #000000;"><tr><th>Nucleotide Number</th><td id="Nucleotide">-</td></tr></table><div id="base"></div><div id="SequenceFragmentFASTA" style="height:80px;"><div id="SequenceFragmentInstruction">press "s" key using keyboard to copy this fragment to Result Log</div></div>';
+            	outputTable1 = '<table id="output" style="border: 1px solid #000000;"><tr><th>Nucleotide Number</th><td id="Nucleotide">-</td></tr></table><div id="base"></div><div id="SequenceFragmentFASTA" style="height:80px;"><div id="SequenceFragmentInstruction">press "d" key using keyboard to copy this fragment to Result Log</div></div>';
             	outputTable21 = '<table class="output" style="border: 1px solid #000000;visibility:hidden;display:none;"><tr><th class="name"> </th><th class="value">Pixels</th><th class="value">Points</th></tr>';
             	outputTable22 = '<tr><th>Mouse position</th><td id="mousePixels">-</td><td id="mousePoints">-</td></tr><tr><th>X, Y</th><td id="nucleotideNumberX">-</td><td id="nucleotideNumberY">-</td><td></td></tr>';
             	outputTable23 = '<tr><th>(X, Y)</th><td id="NucleotideNumberX">-</td><td id="NucleotideNumberY">-</td></tr><tr><th>Column Number</th><td id="ColumnNumber">-</td><td id="ColumnRemainder">-</td></tr>';
@@ -283,8 +283,15 @@
             	$.getScript("../../d3.v3.js", function(){
     									
             				$("#outfile").prepend("<svg id='gcSkewChart' width='800' height='330'></svg>");
-										
+            				
+										//set the gc_skew_window a tenth of the nucleotides in each column
 										var gc_skew_window =  iNucleotidesPerColumn/10;
+																		
+										//if sequence is under 10 columns, make the gc_skew_window 100
+										if ((ipTotal / iNucleotidesPerColumn) < 10) {gc_skew_window = 100;}
+										
+										//if sequence is shorter than one column, make the gc_skew window 10
+										if (iNucleotidesPerColumn > ipTotal) {gc_skew_window = 10;}
 										
 										var step_G=0;
 										var step_C=0;
