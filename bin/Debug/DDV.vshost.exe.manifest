@@ -4,7 +4,7 @@
   <description asmv2:iconFile="App.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="DDV" version="1.0.5547.31131" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="DDV" version="1.0.5547.31410" language="neutral" processorArchitecture="msil" />
     <commandLine file="DDV.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -44,13 +44,13 @@
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DDV.exe" size="78760">
-      <assemblyIdentity name="DDV" version="1.0.5547.31131" language="neutral" processorArchitecture="msil" />
+      <assemblyIdentity name="DDV" version="1.0.5547.31410" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>n6BRa1dxGJqeGpBbXTerLuZiVJw=</dsig:DigestValue>
+        <dsig:DigestValue>7xDSBSDE354I6EQlwkKamYphBXo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -507,13 +507,13 @@
       <dsig:DigestValue>zquyzJ2A6gySAH7/7ZoSNzhc6Qk=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="nucleotideNumber.js" size="16533">
+  <file name="nucleotideNumber.js" size="16543">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>lotzW0hBTCGtcS+sIwHk1M0Ae78=</dsig:DigestValue>
+      <dsig:DigestValue>w+V5/ZWw8OO3ZQp5PU9D/QRV1v8=</dsig:DigestValue>
     </hash>
   </file>
   <file name="openseadragon.min.js" size="152676">

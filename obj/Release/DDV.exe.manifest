@@ -4,7 +4,7 @@
   <description asmv2:iconFile="App.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="DDV" version="1.0.5547.31406" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="DDV" version="1.0.5555.22534" language="neutral" processorArchitecture="msil" />
     <commandLine file="DDV.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -44,13 +44,13 @@
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DDV.exe" size="78760">
-      <assemblyIdentity name="DDV" version="1.0.5547.31406" language="neutral" processorArchitecture="msil" />
+      <assemblyIdentity name="DDV" version="1.0.5555.22534" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>MH0Ezk/Fg1Mn5edL7IWsPZ5MHQI=</dsig:DigestValue>
+        <dsig:DigestValue>lsNUmM5ZTUWvvpG8yBxU6Xh6sjY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -498,13 +498,13 @@
       <dsig:DigestValue>W7IehqB8B+e2Ozs3I1nW3jhUlzk=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="nucleicDensity.js" size="4215">
+  <file name="nucleicDensity.js" size="4100">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>zquyzJ2A6gySAH7/7ZoSNzhc6Qk=</dsig:DigestValue>
+      <dsig:DigestValue>ylNIuDvpzaET57kacYVAse1SboY=</dsig:DigestValue>
     </hash>
   </file>
   <file name="nucleotideNumber.js" size="16543">
@@ -513,7 +513,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>w+V5/ZWw8OO3ZQp5PU9D/QRV1v8=</dsig:DigestValue>
+      <dsig:DigestValue>33vswt8WGKceghOtbTHP0EiGBgg=</dsig:DigestValue>
     </hash>
   </file>
   <file name="openseadragon.min.js" size="152676">

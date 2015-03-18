@@ -11,23 +11,18 @@ function outputDensityUI(){
     <div style="margin-left:10px;border:1px solid #606060;"> \
     <input id="btnCallWebServiceDensity" value="Compute A, T, G, C, G+C, A+T" type="button" />  \
 	<div style="margin-bottom:10px;"> \
-    start: <input id="sbegin" type="text" /> press left-arrow on keyboard to set<br /> \
-    end: <input id="send" type="text" /> press right-arrow on keyboard to set<br /> \
+    start: <input id="sbegin" type="text" /> press \'q\' on keyboard to set<br /> \
+    end: <input id="send" type="text" /> press \'z\' on keyboard to set<br /> \
 	length: <span id="sequenceLength"></span> nucleotides\
 	</div> \
-	';
-	document.write(output);
-	outputStatusResultUI();
-}
-
-function outputStatusResultUI(){
- output='<div id="status"></div> \
+	    <div id="status"></div> \
     <div id="result"> \
     </div> <br clear="left"> \
     <span style="margin-left:10px;background-color:#f0f0f0;">Result Log:</span> \
     <div id="outfile"></div> \
   	</div> \
 	';
+	
 	document.write(output);
 }
 
@@ -54,13 +49,13 @@ function otherCredits(){
                 
                 $('body').keyup(function (event) {
 						    var direction = null;
-						    // handle cursor keys
-						    if (event.keyCode == 37) {
+						    // handle keys
+						    if (event.keyCode == 81) {
 						      // set start
 						      direction=$("#Nucleotide").html();
 						      $("#sbegin").val(direction);
 							  updateSequenceLength();
-						    } else if (event.keyCode == 39) {
+						    } else if (event.keyCode == 90) {
 						      // set end
 						      direction=$("#Nucleotide").html();
 						      $("#send").val(direction);
