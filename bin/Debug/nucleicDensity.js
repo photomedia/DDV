@@ -10,6 +10,7 @@ function outputDensityUI(){
     </div> \
     <div style="margin-left:10px;border:1px solid #606060;"> \
     <input id="btnCallWebServiceDensity" value="Compute A, T, G, C, G+C, A+T" type="button" />  \
+    <input id="btnCallGCSkew" value="Generate GC Skew" type="button" />  \
 	<div style="margin-bottom:10px;"> \
     start: <input id="sbegin" type="text" /> press \'q\' on keyboard to set<br /> \
     end: <input id="send" type="text" /> press \'z\' on keyboard to set<br /> \

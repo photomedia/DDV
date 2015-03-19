@@ -217,7 +217,10 @@
          	}
          else {
          	$("#status").html("Sequence data loaded.  Display of sequence fragments activated.");
-         	$("#status").append("<div id='gc-skew-plot-button'><a href='javascript:GenerateGCSkewChart()'>Display GC Skew Plot</a> available.</a>");
+         	$("#btnCallGCSkew").click(function (event) {
+         		GenerateGCSkewChart();
+         	});
+         	$("#status").append("<div id='gc-skew-plot-button'>Generate GC Skew activated.");
          	sequence_data_loaded=1;
          }
        }
@@ -281,27 +284,33 @@
             	$("#status").html("<img src='../../loading.gif' />Generating GC Skew Plot...");
             	
             	$.getScript("../../d3.v3.js", function(){
-    									
-            				$("#outfile").prepend("<svg id='gcSkewChart' width='800' height='330'></svg>");
+            		
+            		
+            				sbegin=$("#sbegin").val();
+               			send=$("#send").val();
+               			length = send - sbegin;
             				
 										//set the gc_skew_window a tenth of the nucleotides in each column
-										var gc_skew_window =  iNucleotidesPerColumn/10;
+										var gc_skew_window =  1000;
 																		
 										//if sequence is under 10 columns, make the gc_skew_window 100
-										if ((ipTotal / iNucleotidesPerColumn) < 10) {gc_skew_window = 100;}
+										if ((length / iNucleotidesPerColumn) < 10) {gc_skew_window = 100;}
 										
 										//if sequence is shorter than one column, make the gc_skew window 10
-										if (iNucleotidesPerColumn > ipTotal) {gc_skew_window = 10;}
+										if (iNucleotidesPerColumn > length) {gc_skew_window = 10;}
 										
 										var step_G=0;
 										var step_C=0;
 										var step_GC_skew=0;
-										
-										
-										var lineData = jQuery.map( theSequenceSplit, function( item, index ) {
-													step_G += (item.match(/G/g) || []).length;
+    									
+            				$("#outfile").prepend("<div>GC Skew chart [bp "+sbegin+" to "+send+" ]. GC skew window = "+gc_skew_window+"</div><svg id='gcSkewChart' width='800' height='330'></svg>");
+      								
+									
+										var lineData = jQuery.map( theSequenceSplit, function( item, index ) { 
+												
+  											if (((index*iLineLength) > sbegin) && ((index*iLineLength) < send) && ((index*iLineLength) % gc_skew_window == 0)){
+  												step_G += (item.match(/G/g) || []).length;
 													step_C += (item.match(/C/g) || []).length;
-  											if ((index*iLineLength) % gc_skew_window == 0){
   												if ((step_G + step_C)==0){step_GC_skew=0;}
   												else {step_GC_skew = (step_G - step_C)/(step_G + step_C);}
   												step_G=0;
