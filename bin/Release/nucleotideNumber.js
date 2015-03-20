@@ -287,18 +287,20 @@
             		
             		
             				sbegin=$("#sbegin").val();
-               			send=$("#send").val();
-               			length = send - sbegin;
+               				send=$("#send").val();
+               				length = send - sbegin;
+						
+										//10 000 000 > 10 000
+ 										//10 000 000 > 1 000
+ 										//1 000 000 > 1 00
+ 	  									//100 000 > 50
             				
-										//set the gc_skew_window a tenth of the nucleotides in each column
-										var gc_skew_window =  1000;
+										//set the default gc_skew_window to 10000
+										var gc_skew_window =  10000;
+										if (length < 100000 ) {gc_skew_window = 50;}
+										else if (length < 1000000) {gc_skew_window = 100;}
+										else if (length < 10000000) {gc_skew_window = 1000;}
 																		
-										//if sequence is under 10 columns, make the gc_skew_window 100
-										if ((length / iNucleotidesPerColumn) < 10) {gc_skew_window = 100;}
-										
-										//if sequence is shorter than one column, make the gc_skew window 10
-										if (iNucleotidesPerColumn > length) {gc_skew_window = 10;}
-										
 										var step_G=0;
 										var step_C=0;
 										var step_GC_skew=0;
@@ -360,26 +362,26 @@
 									
 									
 									  vis.append("svg:g")
-									    .attr("class", "x axis")
-									    .attr("transform", "translate(0," + (HEIGHT - MARGINS.bottom) + ")")
-									    .call(xAxis)
-									    .append("text")
-      								.attr("x", 116)
-								      .attr("y", 40)
-								      .style("text-anchor", "start")
-								      .style("font-size","12px")
-								      .text("Position in sequence ");
+											.attr("class", "x axis")
+											.attr("transform", "translate(0," + (HEIGHT - MARGINS.bottom) + ")")
+											.call(xAxis)
+											.append("text")
+											.attr("x", 116)
+										  	.attr("y", 40)
+											.style("text-anchor", "start")
+											.style("font-size","12px")
+											.text("Position in sequence ");
 									
 									  vis.append("svg:g")
-									    .attr("class", "y axis")
-									    .attr("transform", "translate(" + (MARGINS.left) + ",0)")
-									    .call(yAxis)
-									    .append("text")
-								      .attr("transform", "rotate(-90)")
-								      .attr("y", 10)
-								      .style("text-anchor", "end")
-								      .style("font-size","12px")
-								      .text("GC-Skew ");
+										  .attr("class", "y axis")
+										  .attr("transform", "translate(" + (MARGINS.left) + ",0)")
+										  .call(yAxis)
+										  .append("text")
+										  .attr("transform", "rotate(-90)")
+										  .attr("y", 10)
+										  .style("text-anchor", "end")
+										  .style("font-size","12px")
+										  .text("GC-Skew ");
 									
 									  var lineFunc = d3.svg.line()
 									  .x(function (d) {
