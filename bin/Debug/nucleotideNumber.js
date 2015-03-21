@@ -309,10 +309,12 @@
       								
 									
 										var lineData = jQuery.map( theSequenceSplit, function( item, index ) { 
-												
-  											if (((index*iLineLength) > sbegin) && ((index*iLineLength) < send) && ((index*iLineLength) % gc_skew_window == 0)){
-  												step_G += (item.match(/G/g) || []).length;
+											
+												  step_G += (item.match(/G/g) || []).length;
 													step_C += (item.match(/C/g) || []).length;
+													
+  											if (((index*iLineLength) > sbegin) && ((index*iLineLength) < send) && ((index*iLineLength) % gc_skew_window == 0)){
+  												
   												if ((step_G + step_C)==0){step_GC_skew=0;}
   												else {step_GC_skew = (step_G - step_C)/(step_G + step_C);}
   												step_G=0;
