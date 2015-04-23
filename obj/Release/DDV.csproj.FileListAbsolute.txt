@@ -246,14 +246,9 @@ C:\DATA\bitbucket\ddv\bin\Release\ssleay32.dll
 C:\DATA\bitbucket\ddv\bin\Release\php.ini
 C:\DATA\bitbucket\ddv\bin\Release\openseadragon.min.js.map
 C:\DATA\bitbucket\ddv\bin\Release\density.php
-C:\DATA\bitbucket\ddv\bin\Release\DDV.exe.manifest
-C:\DATA\bitbucket\ddv\bin\Release\DDV.application
 C:\DATA\bitbucket\ddv\bin\Release\DDV.exe
 C:\DATA\bitbucket\ddv\bin\Release\DeepZoomTools.DLL
 C:\DATA\bitbucket\ddv\obj\Release\DDV.Form1.resources
 C:\DATA\bitbucket\ddv\obj\Release\DDV.Form2.resources
 C:\DATA\bitbucket\ddv\obj\Release\DDV.csproj.GenerateResource.Cache
-C:\DATA\bitbucket\ddv\obj\Release\DDV.TrustInfo.xml
-C:\DATA\bitbucket\ddv\obj\Release\DDV.exe.manifest
-C:\DATA\bitbucket\ddv\obj\Release\DDV.application
 C:\DATA\bitbucket\ddv\obj\Release\DDV.exe

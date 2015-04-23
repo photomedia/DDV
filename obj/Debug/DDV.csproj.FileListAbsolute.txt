@@ -187,17 +187,11 @@ C:\DATA\bitbucket\ddv\bin\Debug\ssleay32.dll
 C:\DATA\bitbucket\ddv\bin\Debug\php.ini
 C:\DATA\bitbucket\ddv\bin\Debug\openseadragon.min.js.map
 C:\DATA\bitbucket\ddv\bin\Debug\density.php
-C:\DATA\bitbucket\ddv\bin\Debug\DDV.exe.manifest
-C:\DATA\bitbucket\ddv\bin\Debug\DDV.application
 C:\DATA\bitbucket\ddv\bin\Debug\DDV.exe
 C:\DATA\bitbucket\ddv\bin\Debug\DDV.pdb
 C:\DATA\bitbucket\ddv\bin\Debug\DeepZoomTools.DLL
 C:\DATA\bitbucket\ddv\obj\Debug\DDV.Form1.resources
 C:\DATA\bitbucket\ddv\obj\Debug\DDV.Form2.resources
 C:\DATA\bitbucket\ddv\obj\Debug\DDV.csproj.GenerateResource.Cache
-C:\DATA\bitbucket\ddv\obj\Debug\DDV.TrustInfo.xml
-C:\DATA\bitbucket\ddv\obj\Debug\DDV.exe.manifest
-C:\DATA\bitbucket\ddv\obj\Debug\DDV.application
 C:\DATA\bitbucket\ddv\obj\Debug\DDV.exe
 C:\DATA\bitbucket\ddv\obj\Debug\DDV.pdb
-C:\DATA\bitbucket\ddv\obj\Debug\DDV.csprojResolveAssemblyReference.cache

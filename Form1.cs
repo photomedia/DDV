@@ -581,7 +581,7 @@ namespace DDV
             this.btnProcessBitmapDeepZoom.Name = "btnProcessBitmapDeepZoom";
             this.btnProcessBitmapDeepZoom.Size = new System.Drawing.Size(97, 44);
             this.btnProcessBitmapDeepZoom.TabIndex = 30;
-            this.btnProcessBitmapDeepZoom.Text = "Process Image with Deepzoom";
+            this.btnProcessBitmapDeepZoom.Text = "Process Image with Deep Zoom";
             this.btnProcessBitmapDeepZoom.UseVisualStyleBackColor = false;
             this.btnProcessBitmapDeepZoom.Click += new System.EventHandler(this.button12_Click);
             // 
