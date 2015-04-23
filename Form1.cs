@@ -516,7 +516,7 @@ namespace DDV
             this.label9.Size = new System.Drawing.Size(600, 13);
             this.label9.TabIndex = 39;
             this.label9.Text = "After selecting sequence, Read Sequence Properties and Generate Image and Interfa" +
-    "ce, then Process Image with Deepzoom";
+    "ce, then Process Image with Deep Zoom";
             // 
             // btnReadSequenceProperties
             // 
@@ -1622,7 +1622,7 @@ This DNA data visualization interface was generated with <a href='https://bitbuc
                 Cursor.Current = Cursors.Default;
 
                 MessageBoxShow("Completed.");
-                MessageBoxShow("Image and interface files generated. Click on Process Image with Deepzoom for the final step.");
+                MessageBoxShow("Image and interface files generated. Click on Process Image with Deep Zoom for the final step.");
                 //enable deepzoomprocessing
                 btnProcessBitmapDeepZoom.Enabled = true;
 
