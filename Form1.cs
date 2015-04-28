@@ -105,6 +105,7 @@ namespace DDV
         private CheckBox chckIncludeDensity;
         private OpenFileDialog dlgImageFileSet;
         private RichTextBox txtBoxFASTAStats;
+        private ToolStripMenuItem helpToolStripMenuItem;
 
 
         protected const string _newline = "\r\n";
@@ -205,6 +206,7 @@ namespace DDV
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.dlgImageFileSet = new System.Windows.Forms.OpenFileDialog();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -513,7 +515,7 @@ namespace DDV
             this.label9.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label9.Location = new System.Drawing.Point(6, 7);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(600, 13);
+            this.label9.Size = new System.Drawing.Size(605, 13);
             this.label9.TabIndex = 39;
             this.label9.Text = "After selecting sequence, Read Sequence Properties and Generate Image and Interfa" +
     "ce, then Process Image with Deep Zoom";
@@ -619,7 +621,8 @@ namespace DDV
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aboutToolStripMenuItem});
+            this.aboutToolStripMenuItem,
+            this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1156, 24);
@@ -633,6 +636,13 @@ namespace DDV
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Text = "Help";
+            this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -2672,6 +2682,28 @@ This DNA data visualization interface was generated with <a href='https://bitbuc
                     BitmapSet(dlgImageFileSet.FileName);
                     btnProcessBitmapDeepZoom.Enabled=true;
                 }
+            }
+        }
+
+        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Go to Help 
+            string strHelpURL = "http://www.photomedia.ca/DDV/download/#help";
+            MessageBoxShow("Opening Help " + strHelpURL);
+            try
+            {
+                System.Diagnostics.Process.Start(strHelpURL);
+            }
+            catch
+                (
+                 System.ComponentModel.Win32Exception noBrowser)
+            {
+                if (noBrowser.ErrorCode == -2147467259)
+                    MessageBox.Show(noBrowser.Message);
+            }
+            catch (System.Exception other)
+            {
+                MessageBox.Show(other.Message);
             }
         }
          
