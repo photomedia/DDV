@@ -297,6 +297,9 @@
     <Content Include="loading.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="msvcr110.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="nucleicDensity.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -376,8 +379,6 @@
     <None Include="civetweb.conf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="DDV_1_TemporaryKey.pfx" />
-    <None Include="DDV_TemporaryKey.pfx" />
     <Content Include="php.ini">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
