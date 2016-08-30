@@ -18,7 +18,7 @@ using System.Runtime.InteropServices;
 
 /*
 
-Copyright (c) 2014, Tomasz Neugebauer
+Copyright (c) 2016, Tomasz Neugebauer
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -64,7 +64,7 @@ namespace DDV
         private Label lblDNAViewer;
 		public string read;
         public string EndOfSequence = "";
-        public string refseq = "";
+        public string accession = "";
         public string gi = "";
         public string DDVseqID = "";
         public string m_strFinalDestinationFolder = "";
@@ -73,9 +73,9 @@ namespace DDV
         //Bitmap glbl_b;
         private RichTextBox resultLogTextBox;
         private Label label5;
-        private TextBox txtGI;
+        private TextBox txtGIorACCESSION;
         private Button btnDownloadFASTA;
-        private Label lblRefSeq;
+        private Label lblAccessionVersion;
         private Label label6;
         private Label label8;
         private Label lblSourceBitmapFilename;
@@ -121,6 +121,7 @@ namespace DDV
 
             btnProcessBitmapDeepZoom.Enabled = false;
             checkEnvironment();
+            //MessageBoxShow("Launching Civetweb");
             launchCivetweb();
             SetFinalDestinationFolder(@Directory.GetCurrentDirectory() + "\\output\\");
             btnGeneratedIntefaces.Enabled = true;
@@ -169,13 +170,13 @@ namespace DDV
             this.label7 = new System.Windows.Forms.Label();
             this.btnDownloadFASTA = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtGI = new System.Windows.Forms.TextBox();
+            this.txtGIorACCESSION = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.lblSourceBitmapFilename = new System.Windows.Forms.Label();
             this.lblDataLength = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtBoxFASTAStats = new System.Windows.Forms.RichTextBox();
-            this.lblRefSeq = new System.Windows.Forms.Label();
+            this.lblAccessionVersion = new System.Windows.Forms.Label();
             this.lblSequenceName = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.saveDialog = new System.Windows.Forms.SaveFileDialog();
@@ -204,9 +205,9 @@ namespace DDV
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.dlgImageFileSet = new System.Windows.Forms.OpenFileDialog();
-            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -241,7 +242,7 @@ namespace DDV
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.btnDownloadFASTA);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.txtGI);
+            this.groupBox1.Controls.Add(this.txtGIorACCESSION);
             this.groupBox1.Controls.Add(this.lblSourceSequence);
             this.groupBox1.Controls.Add(this.btnBrowseSelectFASTA);
             this.groupBox1.Location = new System.Drawing.Point(4, 27);
@@ -264,7 +265,7 @@ namespace DDV
             // btnDownloadFASTA
             // 
             this.btnDownloadFASTA.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.btnDownloadFASTA.Location = new System.Drawing.Point(264, 43);
+            this.btnDownloadFASTA.Location = new System.Drawing.Point(367, 45);
             this.btnDownloadFASTA.Name = "btnDownloadFASTA";
             this.btnDownloadFASTA.Size = new System.Drawing.Size(194, 23);
             this.btnDownloadFASTA.TabIndex = 37;
@@ -277,16 +278,16 @@ namespace DDV
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(36, 48);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(86, 13);
+            this.label5.Size = new System.Drawing.Size(190, 13);
             this.label5.TabIndex = 36;
-            this.label5.Text = "DNA data for GI:";
+            this.label5.Text = "DNA data for GI or Accession Number:";
             // 
-            // txtGI
+            // txtGIorACCESSION
             // 
-            this.txtGI.Location = new System.Drawing.Point(128, 45);
-            this.txtGI.Name = "txtGI";
-            this.txtGI.Size = new System.Drawing.Size(129, 20);
-            this.txtGI.TabIndex = 35;
+            this.txtGIorACCESSION.Location = new System.Drawing.Point(232, 45);
+            this.txtGIorACCESSION.Name = "txtGIorACCESSION";
+            this.txtGIorACCESSION.Size = new System.Drawing.Size(129, 20);
+            this.txtGIorACCESSION.TabIndex = 35;
             // 
             // label8
             // 
@@ -327,7 +328,7 @@ namespace DDV
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.AutoSize = true;
             this.groupBox2.Controls.Add(this.txtBoxFASTAStats);
-            this.groupBox2.Controls.Add(this.lblRefSeq);
+            this.groupBox2.Controls.Add(this.lblAccessionVersion);
             this.groupBox2.Controls.Add(this.lblSequenceName);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.lblDataLength);
@@ -351,14 +352,14 @@ namespace DDV
             this.txtBoxFASTAStats.TabIndex = 35;
             this.txtBoxFASTAStats.Text = "";
             // 
-            // lblRefSeq
+            // lblAccessionVersion
             // 
-            this.lblRefSeq.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.lblAccessionVersion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblRefSeq.Location = new System.Drawing.Point(125, 12);
-            this.lblRefSeq.Name = "lblRefSeq";
-            this.lblRefSeq.Size = new System.Drawing.Size(345, 37);
-            this.lblRefSeq.TabIndex = 36;
+            this.lblAccessionVersion.Location = new System.Drawing.Point(125, 12);
+            this.lblAccessionVersion.Name = "lblAccessionVersion";
+            this.lblAccessionVersion.Size = new System.Drawing.Size(345, 37);
+            this.lblAccessionVersion.TabIndex = 36;
             // 
             // lblSequenceName
             // 
@@ -376,9 +377,9 @@ namespace DDV
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(8, 16);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(43, 13);
+            this.label6.Size = new System.Drawing.Size(94, 13);
             this.label6.TabIndex = 35;
-            this.label6.Text = "RefSeq";
+            this.label6.Text = "Accession.Version";
             // 
             // progressBar1
             // 
@@ -816,7 +817,7 @@ namespace DDV
                 }
                 fDlgSourceSequence.FileName = strDestination;
                 SetSourceSequence(fDlgSourceSequence.FileName);
-                txtGI.Text = "";
+                txtGIorACCESSION.Text = "";
                 CleanInterfaceNewSequence();
                 BitmapClear();
                 
@@ -1138,20 +1139,41 @@ namespace DDV
                             lblSequenceName.Refresh();
                             //ref|NC_007414.1|
                             //[^\]
-                            refseq = Regex.Match(lblSequenceName.Text, @"ref\|(.*?)\|").Groups[1].Value;
-                            if (refseq == "") { 
-                                MessageBoxShow("Refseq not found in sequence file.");
-                                
+                            accession = Regex.Match(lblSequenceName.Text, @"ref\|(.*?)\|").Groups[1].Value;
+                            if (accession == "") {
+                                MessageBoxShow("ref not found in sequence data header. Searching for Accession.Version in old FASTA format | separators");
+                                foreach (Match m in Regex.Matches(lblSequenceName.Text, @"(.*?)\|")) { 
+                                    accession = m.Value;
+                                }
+                                accession = Regex.Match(accession, @"(.*?)\|").Groups[1].Value;
+                                if (accession != "")
+                                {
+                                    MessageBoxShow("Found accession:" + accession);
+                                    lblAccessionVersion.Text = accession;
+                                    MessageBoxShow("setting accession.version to:" + accession);
+                                }
                             }
-                            else { 
-                               //string refseqAcc = Regex.Match(refseq, @"^([^\.]*)\.").Groups[1].Value;
-                               lblRefSeq.Text = refseq;
-                               MessageBoxShow("Refseq present in sequence data. ");
+                            else
+                            {
+                                lblAccessionVersion.Text = accession;
+                                MessageBoxShow("setting accession.version to:" + accession);
+                            }
+                            if (accession == "")
+                            {
+                                MessageBoxShow("Accession.Version not found using old format header with | separators, looking for new format FASTA header");
+                                //look for first word, if it has a period in it, assume it's an Accession.Version
+                                accession = Regex.Match(lblSequenceName.Text, @"^(.*?\.[0-9][0-9]*?)\s").Groups[1].Value;
+                                if (accession != "")
+                                {
+                                    MessageBoxShow("Found accession:" + accession);
+                                    lblAccessionVersion.Text = accession;
+                                    MessageBoxShow("setting accession.version to:" + accession);
+                                }
                             }
                             gi = Regex.Match(lblSequenceName.Text, @"gi\|(.*?)\|").Groups[1].Value;
-                            if (gi == "") {
+                            if ((gi == "") && (accession == "")) {
                                 DDVseqID="DDV"+DateTime.Now.ToString("yyyyMMddHHmmss");
-                                MessageBoxShow("GI not found in sequence file.  Generated the following DDV ID for this sequence: "+DDVseqID);
+                                MessageBoxShow("GI and Accession not found in sequence file.  Generated the following DDV ID for this sequence: "+DDVseqID);
 
                             }
                         }
@@ -1444,13 +1466,21 @@ namespace DDV
                 b.UnlockBits(bmd);
                 bmd = null;
                 string strResultFileName = "";
-                if (gi != "")
+                if (accession != "")
+                {
+                    strResultFileName = accession.Replace(".", "-") + ".png";
+                }
+                else if (gi != "")
                 {
                     strResultFileName = gi + ".png";
                 }
-                else
+                else if (DDVseqID != "")
                 {
                     strResultFileName = DDVseqID + ".png";
+                }
+                else
+                {
+                    MessageBoxShow("Error: accession, gi and DDVseqID are all null - no identifier to use for file name.");
                 }
 
                 //if file exists, delete
@@ -1530,7 +1560,7 @@ namespace DDV
             var pixelSize = 2;
             var ColumnPadding = 4;
             var iLineLength = 70;
-            var usa='refseq_fetch:" + lblRefSeq.Text + "';" +
+            var usa='refseq_fetch:" + lblAccessionVersion.Text + "';" +
                 @"          
             var ipTotal = " + ipTotal + ";" +
                 @"
@@ -1588,17 +1618,20 @@ namespace DDV
                 embedHTML = embedHTML + @"</script>
 
 <div class='legend-details'>
-<h3>Data Source:</h3>
+<h3>About FASTA Data Source:</h3>
 
 <a href='sequence.fasta'>FASTA file</a><br />";
-
-
                 if (gi != "")
                 {
                     embedHTML = embedHTML + @"
 NCBI (gi): <a href='http://www.ncbi.nlm.nih.gov/nuccore/" + gi + @"'>http://www.ncbi.nlm.nih.gov/nuccore/" + gi + @"</a><br />";
                 }
-                else
+                if (accession != "")
+                {
+                    embedHTML = embedHTML + @"
+NCBI (accession): <a href='http://www.ncbi.nlm.nih.gov/nuccore/" + accession + @"'>http://www.ncbi.nlm.nih.gov/nuccore/" + accession + @"</a><br />";
+                }
+                if (DDVseqID != "")
                     {
                         embedHTML = embedHTML + @"
 Custom/local sequence (DDV seq ID): "+DDVseqID+"<br />";
@@ -1607,7 +1640,7 @@ Custom/local sequence (DDV seq ID): "+DDVseqID+"<br />";
                 embedHTML = embedHTML + @"
 
 <h3>Notes</h3>
-This DNA data visualization interface was generated with <a href='https://bitbucket.org/tneugebauer/ddv'>DDV</a><br />Date Visualization Created:" + DateTime.Now.ToString("d/MM/yyyy") + @"
+This DNA data visualization interface was generated with <a href='https://github.com/photomedia/DDV'>DDV</a><br />Date Visualization Created:" + DateTime.Now.ToString("d/MM/yyyy") + @"
 <script type='text/javascript'>
 	        otherCredits();
 </script>
@@ -1902,8 +1935,25 @@ This DNA data visualization interface was generated with <a href='https://bitbuc
 
             try
             {
-            //moving generated folders
-                string strSource=@Directory.GetCurrentDirectory() + "\\output\\" + fNameNoExtension + "_files";
+                string strFolderID = "";
+                if (accession != "")
+                {
+                    strFolderID = accession.Replace(".", "-");
+                }
+                else if (gi != "")
+                {
+                    strFolderID = gi;
+                }
+                else if (DDVseqID != "")
+                {
+                    strFolderID = DDVseqID;
+                }
+
+                MessageBoxShow("Set FolderID to:" + strFolderID);
+
+
+                //moving generated folders
+                string strSource =@Directory.GetCurrentDirectory() + "\\output\\" + fNameNoExtension + "_files";
                 string strDestination = @Directory.GetCurrentDirectory() + "\\output\\"+fNameNoExtension+"\\GeneratedImages\\dzc_output_files";
                 MessageBoxShow("Moving " + strSource + " to " + strDestination);
                 MoveDirectory(strSource, strDestination);
@@ -1936,8 +1986,7 @@ This DNA data visualization interface was generated with <a href='https://bitbuc
 
                 //moving generated folders 
                 strSource = @Directory.GetCurrentDirectory() + "\\output\\" + fNameNoExtension;
-                if (gi != "") { strDestination = finalDestinationPath + "dnadata\\nuccore" + gi; }
-                else { strDestination = finalDestinationPath + "dnadata\\" + DDVseqID; }
+                if (strFolderID != "") { strDestination = finalDestinationPath + "dnadata\\" + strFolderID; }
                 MessageBoxShow("Moving Results" + strSource + " to " + strDestination);
                 MoveDirectory(strSource, strDestination);
 
@@ -1947,8 +1996,7 @@ This DNA data visualization interface was generated with <a href='https://bitbuc
 
                 //moving [img] folder into place
                 strSource = @Directory.GetCurrentDirectory() + "\\img";
-                if (gi != "") { strDestination = finalDestinationPath + "dnadata\\nuccore" + gi + "\\img"; }
-                else { strDestination = finalDestinationPath + "dnadata\\" + DDVseqID + "\\img"; }
+                if (strFolderID != "") { strDestination = finalDestinationPath + "dnadata\\" + strFolderID + "\\img"; }
                 MessageBoxShow("Copying images" + strSource + " to " + strDestination);
                 if (!(Directory.Exists(strDestination)))
                 {
@@ -2009,8 +2057,7 @@ This DNA data visualization interface was generated with <a href='https://bitbuc
                 strSource = fPathName + "\\sequence.fasta";
                 if (File.Exists(strSource))
                 {
-                    if (gi != "") { strDestination = finalDestinationPath + "dnadata\\nuccore" + gi + "\\sequence.fasta"; }
-                    else { strDestination = finalDestinationPath + "dnadata\\" + DDVseqID + "\\sequence.fasta"; }
+                    if (strFolderID != "") { strDestination = finalDestinationPath + "dnadata\\" + strFolderID + "\\sequence.fasta"; }
                     MessageBoxShow("Copying " + strSource + " to " + strDestination);
                     File.Copy(strSource, strDestination, true);
                 }
@@ -2019,8 +2066,7 @@ This DNA data visualization interface was generated with <a href='https://bitbuc
                 strSource = fPathName + "\\sequence-info.xml";
                 if (File.Exists(strSource))
                 {
-                    if (gi != "") { strDestination = finalDestinationPath + "dnadata\\nuccore" + gi + "\\sequence-info.xml"; }
-                    else { strDestination = finalDestinationPath + "dnadata\\" + DDVseqID + "\\sequence-info.xml"; }
+                    if (strFolderID != "") { strDestination = finalDestinationPath + "dnadata\\" + strFolderID + "\\sequence-info.xml"; }
                     MessageBoxShow("Moving " + strSource + " to " + strDestination);
                     File.Copy(strSource, strDestination, true);
                     File.Delete(strSource);
@@ -2241,15 +2287,11 @@ This DNA data visualization interface was generated with <a href='https://bitbuc
 
                 //Go to current result
                 string strResultURL = "";
-                if (gi != "")
-                {
-                    strResultURL = "http://localhost:1818/dnadata/nuccore" + fNameNoExtension + "/index.html";
-                }
-                else
+                if (strFolderID != "")
                 {
                     strResultURL = "http://localhost:1818/dnadata/" + fNameNoExtension + "/index.html";
-     
                 }
+               
                 MessageBoxShow("Opening Result "+strResultURL);
                 lnkLatestInterface.Text = strResultURL;
                 lnkLatestInterface.Enabled = true;
@@ -2300,9 +2342,9 @@ This DNA data visualization interface was generated with <a href='https://bitbuc
         private void button13_Click(object sender, EventArgs e)
         {
             //Download FASTA file from NIH
-            if (txtGI.Text == "")
+            if (txtGIorACCESSION.Text == "")
             {
-                MessageBox.Show("Please enter valid GI or select local data file.");
+                MessageBox.Show("Please enter valid GI or Accession Number or select local data file.");
                 return;
             }
             MessageBoxClear();
@@ -2310,8 +2352,8 @@ This DNA data visualization interface was generated with <a href='https://bitbuc
             Cursor.Current = Cursors.WaitCursor;
             WebClient Client = new WebClient();
             
-            string strDownload = "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nucleotide&rettype=fasta&id=" + txtGI.Text;
-            string strDownloadInfo = "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nucleotide&rettype=docsum&id=" + txtGI.Text;;
+            string strDownload = "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nucleotide&rettype=fasta&id=" + txtGIorACCESSION.Text;
+            string strDownloadInfo = "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nucleotide&rettype=docsum&id=" + txtGIorACCESSION.Text;;
             string strDestinationInfo = @Directory.GetCurrentDirectory() + "\\output\\sequence-info.xml";
             string strDestination = @Directory.GetCurrentDirectory() + "\\output\\sequence.fasta";
             //if file exists, delete it
@@ -2425,8 +2467,11 @@ This DNA data visualization interface was generated with <a href='https://bitbuc
             lblDataLength.Text = "";
             lblSequenceName.Text = "";
             txtBoxFASTAStats.Text = "";
-            lblRefSeq.Text = "";
+            lblAccessionVersion.Text = "";
             progressBar1.Value = 0;
+            accession = "";
+            gi = "";
+            DDVseqID = "";
         }
 
         private void BitmapClear()
@@ -2474,9 +2519,6 @@ This DNA data visualization interface was generated with <a href='https://bitbuc
             BackgroundWorker bw = new BackgroundWorker();
             bw.DoWork += new DoWorkEventHandler(Civetweb_doWork);
             bw.RunWorkerAsync();
-            
-
-            MessageBoxShow("Launching Civetweb");
             }
             catch (ArgumentNullException)
             {
