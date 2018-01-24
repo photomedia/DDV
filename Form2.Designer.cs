@@ -102,7 +102,7 @@
             this.label6.Size = new System.Drawing.Size(397, 13);
             this.label6.TabIndex = 5;
             this.label6.Text = "The following software is included in the distribution under its own respective t" +
-                "erms:";
+    "erms:";
             // 
             // label7
             // 
@@ -204,7 +204,7 @@
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(323, 13);
             this.label11.TabIndex = 16;
-            this.label11.Text = "2014 © Tomasz Neugebauer (tomasz.neugebauer@concordia.ca) ";
+            this.label11.Text = "2018 © Tomasz Neugebauer (tomasz.neugebauer@concordia.ca) ";
             // 
             // linkLabel7
             // 

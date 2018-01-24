@@ -1,4 +1,4 @@
-            var PRECISION = 10;      // number of decimal places  
+            var PRECISION = 10;      // number of decimal places
             var viewer = null;            
             var pointerStatus = "-";
             var ColumnNumber = 0;
@@ -208,26 +208,26 @@
     {
       var xhr = new window.XMLHttpRequest();
      //Download progress
-     xhr.addEventListener("progress", function(evt){
-       if (evt.lengthComputable) {
-         var percentComplete = (evt.loaded / evt.total)*100;
-         //Do something with download progress
-         if (percentComplete < 100){
-         	$("#status").html("<img src='../../loading.gif' /> Loading sequence data: "+parseFloat(percentComplete).toFixed(2) + "% complete");
-         	}
-         else {
-         	$("#status").html("Sequence data loaded.  Display of sequence fragments activated.");
-         	$("#btnCallGCSkew").click(function (event) {
-         		GenerateGCSkewChart();
-         	});
-         	$("#status").append("<div id='gc-skew-plot-button'>Generate GC Skew activated.");
-         	sequence_data_loaded=1;
-         }
-       }
-       else {
-       $("#status").html("<img src='../../loading.gif' />Loading sequence data  ... [ "+parseFloat(evt.loaded / 1048576).toFixed(2) +" MB loaded ]");
-       }
-     }, false);
+      xhr.addEventListener("load", function (evt) {
+          $("#status").html("Sequence data loaded.  Display of sequence fragments activated.");
+          $("#btnCallGCSkew").click(function (event) {
+              GenerateGCSkewChart();
+          });
+          $("#status").append("<div id='gc-skew-plot-button'>Generate GC Skew activated.");
+          sequence_data_loaded = 1;
+      }, false);
+      xhr.addEventListener("progress", function (evt) {
+          if (evt.lengthComputable) {
+              var percentComplete = (evt.loaded / evt.total) * 100;
+              //Do something with download progress
+              if (percentComplete < 100) {
+                  $("#status").html("<img src='../../loading.gif' /> Loading sequence data: " + parseFloat(percentComplete).toFixed(2) + "% complete");
+              }
+          }
+          else {
+              $("#status").html("<img src='../../loading.gif' />Loading sequence data  ... [ " + parseFloat(evt.loaded / 1048576).toFixed(2) + " MB loaded ]");
+          }
+      }, false);
     return xhr;
    },
                     type: "GET",
