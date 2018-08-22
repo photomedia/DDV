@@ -1,4 +1,10 @@
-﻿DNA Data Visualization (DDV) software
+﻿Latest version:
+ 
+ The most up-to-date version of DDV has been ported to Python, with releases for Windows and MacOS at the following fork:
+ https://github.com/josiahseaman/FluentDNA
+ 
+ 
+ DNA Data Visualization (DDV) software
 
 This C# application creates visualizations of FASTA formatted DNA nucleotide data. 
 DDV can download FASTA sequences from NIH, or use local FASTA formatted files. 
